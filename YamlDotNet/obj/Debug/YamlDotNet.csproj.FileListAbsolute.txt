@@ -1,0 +1,8 @@
+C:\Users\VinceAlt\Desktop\SaintCoinach-master\YamlDotNet\bin\Debug\YamlDotNet.xml
+C:\Users\VinceAlt\Desktop\SaintCoinach-master\YamlDotNet\bin\Debug\YamlDotNet.dll
+C:\Users\VinceAlt\Desktop\SaintCoinach-master\YamlDotNet\bin\Debug\YamlDotNet.pdb
+C:\Users\VinceAlt\Desktop\SaintCoinach-master\YamlDotNet\bin\Debug\YamlDotNet.dll.CodeAnalysisLog.xml
+C:\Users\VinceAlt\Desktop\SaintCoinach-master\YamlDotNet\bin\Debug\YamlDotNet.dll.lastcodeanalysissucceeded
+C:\Users\VinceAlt\Desktop\SaintCoinach-master\YamlDotNet\obj\Debug\YamlDotNet.csprojResolveAssemblyReference.cache
+C:\Users\VinceAlt\Desktop\SaintCoinach-master\YamlDotNet\obj\Debug\YamlDotNet.dll
+C:\Users\VinceAlt\Desktop\SaintCoinach-master\YamlDotNet\obj\Debug\YamlDotNet.pdb
