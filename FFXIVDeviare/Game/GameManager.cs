@@ -265,9 +265,9 @@ namespace FFXIVDeviare.Game
                 {
 
                     // let's set the unk3s
-                    if (this.token105 == 0 && p.Subpackets[0].SubpacketHeader.Id == 105) this.token105 = p.Subpackets[0].SubpacketHeader.Token;
-                    if (this.token209 == 0 && p.Subpackets[0].SubpacketHeader.Id == 209) this.token209 = p.Subpackets[0].SubpacketHeader.Token;
-                    if (this.token286 == 0 && p.Subpackets.Count() > 1 && p.Subpackets[1].SubpacketHeader.Id == 286) this.token286 = p.Subpackets[1].SubpacketHeader.Token;
+                    if (p.Subpackets[0].SubpacketHeader.Id == 105 || (p.Subpackets[0].SubpacketHeader.Id == 410 && p.Subpackets.Count == 1)) this.token105 = p.Subpackets[0].SubpacketHeader.Token;
+                    if (p.Subpackets[0].SubpacketHeader.Id == 209 || (p.Subpackets[0].SubpacketHeader.Id == 410 && p.Subpackets.Count > 1)) this.token209 = p.Subpackets[0].SubpacketHeader.Token;
+                    if (p.Subpackets.Count() > 1 && p.Subpackets[0].SubpacketHeader.Id == 410 && p.Subpackets[1].SubpacketHeader.Id == 410) this.token286 = p.Subpackets[1].SubpacketHeader.Token;
 
                     // let's get our retainer ids
                     if (p.Subpackets.Count() > 7 && p.Subpackets[0].SubpacketHeader.Id == 427 && p.Subpackets[1].SubpacketHeader.Id == 427 && p.Subpackets[2].SubpacketHeader.Id == 427 && p.Subpackets[3].SubpacketHeader.Id == 427 && p.Subpackets[4].SubpacketHeader.Id == 427 && p.Subpackets[5].SubpacketHeader.Id == 427 && p.Subpackets[6].SubpacketHeader.Id == 427 && p.Subpackets[7].SubpacketHeader.Id == 427)
