@@ -1,0 +1,8 @@
+LIBRARY
+EXPORTS
+	DllMain	PRIVATE
+	fnCustom
+	GetLuaAddresses
+	GenerateUniqueTimestamp
+	SocketSend
+	GetSocketInfo

@@ -1,0 +1,6 @@
+LIBRARY
+EXPORTS
+	DllMain	PRIVATE
+	fnCustom
+	GenerateUniqueTimestamp
+	SocketSend

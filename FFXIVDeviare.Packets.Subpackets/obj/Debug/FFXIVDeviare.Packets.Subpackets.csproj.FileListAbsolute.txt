@@ -1,0 +1,5 @@
+C:\Projects\FFXIVDeviare\FFXIVDeviare.Packets.Subpackets\bin\Debug\FFXIVDeviare.Packets.Subpackets.dll
+C:\Projects\FFXIVDeviare\FFXIVDeviare.Packets.Subpackets\bin\Debug\FFXIVDeviare.Packets.Subpackets.pdb
+C:\Projects\FFXIVDeviare\FFXIVDeviare.Packets.Subpackets\obj\Debug\FFXIVDeviare.Packets.Subpackets.csprojResolveAssemblyReference.cache
+C:\Projects\FFXIVDeviare\FFXIVDeviare.Packets.Subpackets\obj\Debug\FFXIVDeviare.Packets.Subpackets.dll
+C:\Projects\FFXIVDeviare\FFXIVDeviare.Packets.Subpackets\obj\Debug\FFXIVDeviare.Packets.Subpackets.pdb

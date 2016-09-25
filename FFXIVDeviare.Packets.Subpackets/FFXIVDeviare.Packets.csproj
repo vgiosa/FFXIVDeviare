@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0E943EA-37FB-4458-A10D-9F13087ADA4F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FFXIVDeviare.Packets.Subpackets</RootNamespace>
+    <AssemblyName>FFXIVDeviare.Packets.Subpackets</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NonMagicPackets\Sent\GetUpdate.cs" />
+    <Compile Include="Packet.cs" />
+    <Compile Include="Subpackets\Chat\Received\GeneralMessageReceived.cs" />
+    <Compile Include="Subpackets\Chat\Sent\GeneralMessageSent.cs" />
+    <Compile Include="Subpackets\Chat\Sent\WhisperMessageSent.cs" />
+    <Compile Include="Subpackets\Packet265.cs" />
+    <Compile Include="Subpackets\Packet266.cs" />
+    <Compile Include="Subpackets\Packet401.cs" />
+    <Compile Include="Subpackets\Packet406.cs" />
+    <Compile Include="Subpackets\Received\InventoryUpdate.cs" />
+    <Compile Include="Subpackets\Received\ItemUpdate.cs" />
+    <Compile Include="Subpackets\Received\entrustOrWithdrawGilFromRetainer_UnkData.cs" />
+    <Compile Include="Subpackets\Received\MarketBoardHistoryForItem.cs" />
+    <Compile Include="Subpackets\Received\MarketBoardDataForItem.cs" />
+    <Compile Include="Subpackets\Received\OtherPlayerMovement.cs" />
+    <Compile Include="Subpackets\Received\MarketBoardItemSearchResult.cs" />
+    <Compile Include="Subpackets\Received\Packet423.cs" />
+    <Compile Include="Subpackets\Received\BagCounts.cs" />
+    <Compile Include="Subpackets\Received\SelectedOptionFromRetainerMenu_RetainerData.cs" />
+    <Compile Include="Subpackets\Received\SelectedRetainerAtSummoningBell_RetainerData.cs" />
+    <Compile Include="Subpackets\Received\SelectedRetainerAtSummoningBell_RetainerMarketBoardData1.cs" />
+    <Compile Include="Subpackets\Received\SelectedRetainerAtSummoningBell_RetainerMarketBoardData2.cs" />
+    <Compile Include="Subpackets\Received\SelectedRetainerAtSummoningBell_RetainerWalletData.cs" />
+    <Compile Include="Subpackets\Received\BagContents.cs" />
+    <Compile Include="Subpackets\Received\SelectedSummoningBell_RetainerData1.cs" />
+    <Compile Include="Subpackets\Received\SelectedSummoningBell_RetainerData2.cs" />
+    <Compile Include="Subpackets\Chat\Received\WhisperMessageRecv.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket260.cs" />
+    <Compile Include="Subpackets\Received\ZoneAreaMessageReceived.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket221.cs" />
+    <Compile Include="Subpackets\Received\FCMemberLoggedIn.cs" />
+    <Compile Include="Subpackets\Received\GetFriendPartyOrSearchList.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket206.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket205.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket214.cs" />
+    <Compile Include="Subpackets\Received\PartyFinderUpdate.cs" />
+    <Compile Include="Subpackets\Received\FCNameAndTag.cs" />
+    <Compile Include="Subpackets\Received\FCActivityList.cs" />
+    <Compile Include="Subpackets\Received\FCActionsList.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket280.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket279.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket275.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket282.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket320.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket327.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket330.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket336.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket346.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket409.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket420.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket456.cs" />
+    <Compile Include="Subpackets\Received\CraftActionResponse.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket458.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket485.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket403.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket756.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket602.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket622.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket650.cs" />
+    <Compile Include="Subpackets\Received\ZoneLoadInfo.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket400.cs" />
+    <Compile Include="Subpackets\Received\PlayerExamineResult.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket623.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket801.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket710.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket495.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket414.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket452.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket436.cs" />
+    <Compile Include="Subpackets\Received\LinkshellList.cs" />
+    <Compile Include="Subpackets\Received\FCInfo.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket328.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket466.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket465.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket621.cs" />
+    <Compile Include="Subpackets\Received\HealingOrDamageRecevied.cs" />
+    <Compile Include="Subpackets\Received\MonsterActivityTargetedAtPlayer.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket411.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket725.cs" />
+    <Compile Include="Subpackets\Received\HQCraftResult.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket473.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket464.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket404.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket417.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket271.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket102.cs" />
+    <Compile Include="Subpackets\Received\StatusUpdateConfirmation.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket106.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket321.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket208.cs" />
+    <Compile Include="Subpackets\Received\OtherNPCActivity.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket401.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket402.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket324.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket332.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket729.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket512.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket494.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket481.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket463.cs" />
+    <Compile Include="Subpackets\Received\BagOperationConfirmation.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket418.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket415.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket421.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket472.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket461.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket743.cs" />
+    <Compile Include="Subpackets\Received\StartQuitNPCDialogServerResponse.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket419.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket460.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket322.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket413.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket101.cs" />
+    <Compile Include="Subpackets\Received\UnkPacket323.cs" />
+    <Compile Include="Subpackets\Sent\BagOperation.cs" />
+    <Compile Include="Subpackets\Sent\BuyItemFromMarketBoard.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\CraftNormalAction.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\CraftBuffAction.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\AssignClassToRetainer.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\RetainerSetItemPrice.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\RetainerAssignClass.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\QuitRetainer.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\ReturnToRetainerMainMenu.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\SummonRetainer.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\RingSummoningBell.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\StartCraftInCrafterStance.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\StartCraftOutOfCrafterStance.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\RemoveBuff.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\SetCrossClass.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\QueueDesynthRequest.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\PlayerSetTarget.cs" />
+    <Compile Include="Subpackets\Sent\ExpandedPackets\NPCRepairAction.cs" />
+    <Compile Include="Subpackets\Sent\NPCDialogRequest.cs" />
+    <Compile Include="Subpackets\Sent\RequestMarketBoardDataForItem.cs" />
+    <Compile Include="Subpackets\Sent\RetainerMenuOption_ViewSaleHistory.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket232.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket213.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket212.cs" />
+    <Compile Include="Subpackets\Sent\GearsetChange.cs" />
+    <Compile Include="Subpackets\Sent\MarketboardItemSearch.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket295.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket291.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket290.cs" />
+    <Compile Include="Subpackets\Sent\ViewFCActivityLog.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket285.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket283.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket297.cs" />
+    <Compile Include="Subpackets\Sent\CraftStartStep1.cs" />
+    <Compile Include="Subpackets\Sent\CraftStartStep2.cs" />
+    <Compile Include="Subpackets\Sent\CraftAction.cs" />
+    <Compile Include="Subpackets\Sent\PlayerMovementInHouse.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket610.cs" />
+    <Compile Include="Subpackets\Sent\UpdateStatusInfo.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket279.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket286.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket203.cs" />
+    <Compile Include="Subpackets\Sent\ExaminePlayerOrFC.cs" />
+    <Compile Include="Subpackets\Sent\RetainerActions.cs" />
+    <Compile Include="Subpackets\Sent\ViewSearchInfo.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket481.cs" />
+    <Compile Include="Subpackets\Sent\PerformAction.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket482.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket105.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket207.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket209.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket246.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket262.cs" />
+    <Compile Include="Subpackets\Sent\QuitNPCDialog.cs" />
+    <Compile Include="Subpackets\Sent\UnkPacket401.cs" />
+    <Compile Include="Subpackets\Sent\PingUpdate.cs" />
+    <Compile Include="Subpackets\Sent\PlayerMovement.cs" />
+    <Compile Include="Subpackets\Sent\ZoneAreaMessageSent.cs" />
+    <Compile Include="Subpackets\Subpacket.cs" />
+    <Compile Include="Subpackets\UnknownSubpacket.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SaintCoinach\SaintCoinach.csproj">
+      <Project>{8a7d65eb-3de3-4631-b286-cc73a3126002}</Project>
+      <Name>SaintCoinach</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
