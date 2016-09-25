@@ -1,0 +1,1779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ffxiv_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CategoryGroups">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoryListings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Player" Type="int" Nullable="false" />
+          <Property Name="ServerItem" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="HQ" Type="bit" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ItemByServers">
+          <Key>
+            <PropertyRef Name="ServerItemId" />
+          </Key>
+          <Property Name="ServerItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="Server" Type="int" Nullable="false" />
+          <Property Name="LastChecked" Type="datetime" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="LowestPrice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemCategories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryGroup" Type="int" Nullable="false" />
+          <Property Name="CategoryIcon" Type="image" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="Category" Type="int" Nullable="false" />
+          <Property Name="Singular" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Plural" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="StartsWithVowel" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Icon" Type="image" />
+          <Property Name="ItemLevel" Type="int" Nullable="false" />
+          <Property Name="EquipLevel" Type="int" Nullable="false" />
+          <Property Name="PvpRank" Type="int" Nullable="false" />
+          <Property Name="StackSize" Type="bigint" Nullable="false" />
+          <Property Name="Stain" Type="int" Nullable="false" />
+          <Property Name="ItemSearchCategory" Type="int" Nullable="false" />
+          <Property Name="Rarity" Type="int" Nullable="false" />
+          <Property Name="CanBeHQ" Type="bit" Nullable="false" />
+          <Property Name="IsDyeable" Type="bit" Nullable="false" />
+          <Property Name="IsCrestWorthy" Type="bit" Nullable="false" />
+          <Property Name="MaterializeType" Type="int" Nullable="false" />
+          <Property Name="MateriaSlotCount" Type="int" Nullable="false" />
+          <Property Name="EquipSlotCategory" Type="int" Nullable="false" />
+          <Property Name="MainModel" Type="bigint" Nullable="false" />
+          <Property Name="SubModel" Type="bigint" Nullable="false" />
+          <Property Name="BaseParam0" Type="tinyint" Nullable="false" />
+          <Property Name="BaseParam1" Type="tinyint" Nullable="false" />
+          <Property Name="BaseParam2" Type="tinyint" Nullable="false" />
+          <Property Name="BaseParam3" Type="tinyint" Nullable="false" />
+          <Property Name="BaseParam4" Type="tinyint" Nullable="false" />
+          <Property Name="BaseParam5" Type="tinyint" Nullable="false" />
+          <Property Name="BaseParamValue0" Type="int" Nullable="false" />
+          <Property Name="BaseParamValue1" Type="int" Nullable="false" />
+          <Property Name="BaseParamValue2" Type="int" Nullable="false" />
+          <Property Name="BaseParamValue3" Type="int" Nullable="false" />
+          <Property Name="BaseParamValue4" Type="int" Nullable="false" />
+          <Property Name="BaseParamValue5" Type="int" Nullable="false" />
+          <Property Name="SpecialBaseParam0" Type="tinyint" Nullable="false" />
+          <Property Name="SpecialBaseParam1" Type="tinyint" Nullable="false" />
+          <Property Name="SpecialBaseParam2" Type="tinyint" Nullable="false" />
+          <Property Name="SpecialBaseParam3" Type="tinyint" Nullable="false" />
+          <Property Name="SpecialBaseParam4" Type="tinyint" Nullable="false" />
+          <Property Name="SpecialBaseParam5" Type="tinyint" Nullable="false" />
+          <Property Name="SpecialBaseParamValue0" Type="int" Nullable="false" />
+          <Property Name="SpecialBaseParamValue1" Type="int" Nullable="false" />
+          <Property Name="SpecialBaseParamValue2" Type="int" Nullable="false" />
+          <Property Name="SpecialBaseParamValue3" Type="int" Nullable="false" />
+          <Property Name="SpecialBaseParamValue4" Type="int" Nullable="false" />
+          <Property Name="SpecialBaseParamValue5" Type="int" Nullable="false" />
+          <Property Name="SpecialBonus" Type="int" Nullable="false" />
+          <Property Name="RepairClasses" Type="tinyint" Nullable="false" />
+          <Property Name="ItemRepair" Type="int" Nullable="false" />
+          <Property Name="UsableClasses" Type="tinyint" Nullable="false" />
+          <Property Name="DamagePhysical" Type="int" Nullable="false" />
+          <Property Name="DamageMagical" Type="int" Nullable="false" />
+          <Property Name="Delay" Type="int" Nullable="false" />
+          <Property Name="BlockRate" Type="int" Nullable="false" />
+          <Property Name="Block" Type="int" Nullable="false" />
+          <Property Name="DefensePhysical" Type="int" Nullable="false" />
+          <Property Name="DefenseMagical" Type="int" Nullable="false" />
+          <Property Name="Cooldown" Type="int" Nullable="false" />
+          <Property Name="ItemAction" Type="int" Nullable="false" />
+          <Property Name="IsDisposable" Type="bit" Nullable="false" />
+          <Property Name="IsUnique" Type="bit" Nullable="false" />
+          <Property Name="IsUntradable" Type="bit" Nullable="false" />
+          <Property Name="PriceLow" Type="int" Nullable="false" />
+          <Property Name="PriceMid" Type="int" Nullable="false" />
+          <Property Name="PriceHigh" Type="bit" Nullable="false" />
+          <Property Name="EquipableByRace0" Type="bit" Nullable="false" />
+          <Property Name="EquipableByRace1" Type="bit" Nullable="false" />
+          <Property Name="EquipableByRace2" Type="bit" Nullable="false" />
+          <Property Name="EquipableByRace3" Type="bit" Nullable="false" />
+          <Property Name="EquipableByRace4" Type="bit" Nullable="false" />
+          <Property Name="EquipableByRace5" Type="bit" Nullable="false" />
+          <Property Name="EquipableByRace6" Type="bit" Nullable="false" />
+          <Property Name="EquipableByMales" Type="bit" Nullable="false" />
+          <Property Name="EquipableByFemales" Type="tinyint" Nullable="false" />
+          <Property Name="ClassJobCategory" Type="int" Nullable="false" />
+          <Property Name="GrandCompany" Type="tinyint" Nullable="false" />
+          <Property Name="GCTurnIn" Type="tinyint" Nullable="false" />
+          <Property Name="ItemSeries" Type="int" Nullable="false" />
+          <Property Name="BaseParamModifier" Type="bit" Nullable="false" />
+          <Property Name="IsPVP" Type="int" Nullable="false" />
+          <Property Name="Glamour" Type="int" Nullable="false" />
+          <Property Name="Desynthesizable" Type="bit" Nullable="false" />
+          <Property Name="IsCollectable" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MarketListings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Retainer" Type="int" Nullable="false" />
+          <Property Name="ServerItem" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="HQ" Type="bit" Nullable="false" />
+          <Property Name="City" Type="smallint" Nullable="false" />
+          <Property Name="Quantity" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Materia1" Type="nchar" MaxLength="10" />
+          <Property Name="Materia2" Type="nchar" MaxLength="10" />
+          <Property Name="Materia3" Type="nchar" MaxLength="10" />
+          <Property Name="Materia4" Type="nchar" MaxLength="10" />
+          <Property Name="Materia5" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlayerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Server" Type="int" Nullable="false" />
+          <Property Name="LastPurchased" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RecipeElements">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipeLevels">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="CharacterLevel" Type="tinyint" Nullable="false" />
+          <Property Name="Stars" Type="tinyint" Nullable="false" />
+          <Property Name="Difficulty" Type="int" Nullable="false" />
+          <Property Name="Quality" Type="int" Nullable="false" />
+          <Property Name="Durability" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="recipeId" Type="int" Nullable="false" />
+          <Property Name="CraftType" Type="int" Nullable="false" />
+          <Property Name="RecipeLevel" Type="int" Nullable="false" />
+          <Property Name="ResultItem" Type="int" Nullable="false" />
+          <Property Name="ResultAmount" Type="int" Nullable="false" />
+          <Property Name="Ingredient1" Type="int" Nullable="false" />
+          <Property Name="IngredientAmount1" Type="tinyint" Nullable="false" />
+          <Property Name="Ingredient2" Type="int" Nullable="false" />
+          <Property Name="IngredientAmount2" Type="tinyint" Nullable="false" />
+          <Property Name="Ingredient3" Type="int" Nullable="false" />
+          <Property Name="IngredientAmount3" Type="tinyint" Nullable="false" />
+          <Property Name="Ingredient4" Type="int" Nullable="false" />
+          <Property Name="IngredientAmount4" Type="tinyint" Nullable="false" />
+          <Property Name="Ingredient5" Type="int" Nullable="false" />
+          <Property Name="IngredientAmount5" Type="tinyint" Nullable="false" />
+          <Property Name="Ingredient6" Type="int" Nullable="false" />
+          <Property Name="IngredientAmount6" Type="tinyint" Nullable="false" />
+          <Property Name="Ingredient7" Type="int" Nullable="false" />
+          <Property Name="IngredientAmount7" Type="tinyint" Nullable="false" />
+          <Property Name="CrystalType1" Type="int" Nullable="false" />
+          <Property Name="CrystalAmount1" Type="tinyint" Nullable="false" />
+          <Property Name="CrystalType2" Type="int" Nullable="false" />
+          <Property Name="CrystalAmount2" Type="tinyint" Nullable="false" />
+          <Property Name="RecipeElement" Type="tinyint" Nullable="false" />
+          <Property Name="RecipeNotebook" Type="int" Nullable="false" />
+          <Property Name="IsSecondary" Type="bit" Nullable="false" />
+          <Property Name="Difficulty" Type="int" Nullable="false" />
+          <Property Name="Quality" Type="int" Nullable="false" />
+          <Property Name="Durability" Type="int" Nullable="false" />
+          <Property Name="RequiredCraftsmanship" Type="int" Nullable="false" />
+          <Property Name="RequiredControl" Type="int" Nullable="false" />
+          <Property Name="QuickSynthCraftsmanship" Type="int" Nullable="false" />
+          <Property Name="QuickSynthControl" Type="int" Nullable="false" />
+          <Property Name="CanQuickSynth" Type="bit" Nullable="false" />
+          <Property Name="CanHq" Type="bit" Nullable="false" />
+          <Property Name="RequiredItem" Type="int" Nullable="false" />
+          <Property Name="IsSpecializationRequired" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RetainerLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RetainerId" Type="int" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Retainers">
+          <Key>
+            <PropertyRef Name="RetainerId" />
+          </Key>
+          <Property Name="RetainerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RetainerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Server" Type="int" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Servers">
+          <Key>
+            <PropertyRef Name="ServerId" />
+          </Key>
+          <Property Name="ServerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ServerIp" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="BeastTribe" Type="tinyint" Nullable="false" />
+          <Property Name="BeastReputation" Type="tinyint" Nullable="false" />
+          <Property Name="Quest" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShopItem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Item" Type="int" Nullable="false" />
+          <Property Name="Quest" Type="int" Nullable="false" />
+          <Property Name="Achievement" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShopItemMap">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shop" Type="int" Nullable="false" />
+          <Property Name="ShopItem" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_HistoryListing_ItemsByServer">
+          <End Role="ItemByServers" Type="Self.ItemByServers" Multiplicity="1" />
+          <End Role="HistoryListings" Type="Self.HistoryListings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemByServers">
+              <PropertyRef Name="ServerItemId" />
+            </Principal>
+            <Dependent Role="HistoryListings">
+              <PropertyRef Name="ServerItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoryListing_Player">
+          <End Role="Players" Type="Self.Players" Multiplicity="1" />
+          <End Role="HistoryListings" Type="Self.HistoryListings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Players">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="HistoryListings">
+              <PropertyRef Name="Player" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCategory_CategoryGroup">
+          <End Role="CategoryGroups" Type="Self.CategoryGroups" Multiplicity="1" />
+          <End Role="ItemCategories" Type="Self.ItemCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryGroups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="ItemCategories">
+              <PropertyRef Name="CategoryGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemCategory">
+          <End Role="ItemCategories" Type="Self.ItemCategories" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsByServer_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="ItemByServers" Type="Self.ItemByServers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="ItemByServers">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsByServer_Servers">
+          <End Role="Servers" Type="Self.Servers" Multiplicity="1" />
+          <End Role="ItemByServers" Type="Self.ItemByServers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servers">
+              <PropertyRef Name="ServerId" />
+            </Principal>
+            <Dependent Role="ItemByServers">
+              <PropertyRef Name="Server" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarketListing_ItemsByServer">
+          <End Role="ItemByServers" Type="Self.ItemByServers" Multiplicity="1" />
+          <End Role="MarketListings" Type="Self.MarketListings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemByServers">
+              <PropertyRef Name="ServerItemId" />
+            </Principal>
+            <Dependent Role="MarketListings">
+              <PropertyRef Name="ServerItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarketListing_Retainer">
+          <End Role="Retainers" Type="Self.Retainers" Multiplicity="1" />
+          <End Role="MarketListings" Type="Self.MarketListings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retainers">
+              <PropertyRef Name="RetainerId" />
+            </Principal>
+            <Dependent Role="MarketListings">
+              <PropertyRef Name="Retainer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Player_Servers">
+          <End Role="Servers" Type="Self.Servers" Multiplicity="1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servers">
+              <PropertyRef Name="ServerId" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Server" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items1">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items10">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="RequiredItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items2">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items3">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items4">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient5" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items5">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient6" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items6">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient7" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items7">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="CrystalType1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items8">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="CrystalType2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items9">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="ResultItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_RecipeLevels">
+          <End Role="RecipeLevels" Type="Self.RecipeLevels" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeLevels">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="RecipeLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Retainer_Servers">
+          <End Role="Servers" Type="Self.Servers" Multiplicity="1" />
+          <End Role="Retainers" Type="Self.Retainers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servers">
+              <PropertyRef Name="ServerId" />
+            </Principal>
+            <Dependent Role="Retainers">
+              <PropertyRef Name="Server" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RetainerRetainerLog">
+          <End Role="Retainers" Type="Self.Retainers" Multiplicity="1" />
+          <End Role="RetainerLogs" Type="Self.RetainerLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retainers">
+              <PropertyRef Name="RetainerId" />
+            </Principal>
+            <Dependent Role="RetainerLogs">
+              <PropertyRef Name="RetainerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopItem_Items1">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="ShopItem" Type="Self.ShopItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="ShopItem">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopItemMap_Shop">
+          <End Role="Shop" Type="Self.Shop" Multiplicity="1" />
+          <End Role="ShopItemMap" Type="Self.ShopItemMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ShopItemMap">
+              <PropertyRef Name="Shop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopItemMap_ShopItem">
+          <End Role="ShopItem" Type="Self.ShopItem" Multiplicity="1" />
+          <End Role="ShopItemMap" Type="Self.ShopItemMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopItem">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ShopItemMap">
+              <PropertyRef Name="ShopItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ffxiv_dbModelStoreContainer">
+          <EntitySet Name="CategoryGroups" EntityType="Self.CategoryGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoryListings" EntityType="Self.HistoryListings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemByServers" EntityType="Self.ItemByServers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemCategories" EntityType="Self.ItemCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarketListings" EntityType="Self.MarketListings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeElements" EntityType="Self.RecipeElements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeLevels" EntityType="Self.RecipeLevels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RetainerLogs" EntityType="Self.RetainerLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Retainers" EntityType="Self.Retainers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servers" EntityType="Self.Servers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShopItem" EntityType="Self.ShopItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShopItemMap" EntityType="Self.ShopItemMap" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_HistoryListing_ItemsByServer" Association="Self.FK_HistoryListing_ItemsByServer">
+            <End Role="ItemByServers" EntitySet="ItemByServers" />
+            <End Role="HistoryListings" EntitySet="HistoryListings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoryListing_Player" Association="Self.FK_HistoryListing_Player">
+            <End Role="Players" EntitySet="Players" />
+            <End Role="HistoryListings" EntitySet="HistoryListings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCategory_CategoryGroup" Association="Self.FK_ItemCategory_CategoryGroup">
+            <End Role="CategoryGroups" EntitySet="CategoryGroups" />
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemCategory" Association="Self.FK_Items_ItemCategory">
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsByServer_Items" Association="Self.FK_ItemsByServer_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemByServers" EntitySet="ItemByServers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsByServer_Servers" Association="Self.FK_ItemsByServer_Servers">
+            <End Role="Servers" EntitySet="Servers" />
+            <End Role="ItemByServers" EntitySet="ItemByServers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarketListing_ItemsByServer" Association="Self.FK_MarketListing_ItemsByServer">
+            <End Role="ItemByServers" EntitySet="ItemByServers" />
+            <End Role="MarketListings" EntitySet="MarketListings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarketListing_Retainer" Association="Self.FK_MarketListing_Retainer">
+            <End Role="Retainers" EntitySet="Retainers" />
+            <End Role="MarketListings" EntitySet="MarketListings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Player_Servers" Association="Self.FK_Player_Servers">
+            <End Role="Servers" EntitySet="Servers" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items" Association="Self.FK_Recipes_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items1" Association="Self.FK_Recipes_Items1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items10" Association="Self.FK_Recipes_Items10">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items2" Association="Self.FK_Recipes_Items2">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items3" Association="Self.FK_Recipes_Items3">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items4" Association="Self.FK_Recipes_Items4">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items5" Association="Self.FK_Recipes_Items5">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items6" Association="Self.FK_Recipes_Items6">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items7" Association="Self.FK_Recipes_Items7">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items8" Association="Self.FK_Recipes_Items8">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items9" Association="Self.FK_Recipes_Items9">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_RecipeLevels" Association="Self.FK_Recipes_RecipeLevels">
+            <End Role="RecipeLevels" EntitySet="RecipeLevels" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Retainer_Servers" Association="Self.FK_Retainer_Servers">
+            <End Role="Servers" EntitySet="Servers" />
+            <End Role="Retainers" EntitySet="Retainers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RetainerRetainerLog" Association="Self.FK_RetainerRetainerLog">
+            <End Role="Retainers" EntitySet="Retainers" />
+            <End Role="RetainerLogs" EntitySet="RetainerLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopItem_Items1" Association="Self.FK_ShopItem_Items1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ShopItem" EntitySet="ShopItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopItemMap_Shop" Association="Self.FK_ShopItemMap_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="ShopItemMap" EntitySet="ShopItemMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopItemMap_ShopItem" Association="Self.FK_ShopItemMap_ShopItem">
+            <End Role="ShopItem" EntitySet="ShopItem" />
+            <End Role="ShopItemMap" EntitySet="ShopItemMap" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ffxiv_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CategoryGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ItemCategories" Relationship="Self.FK_ItemCategory_CategoryGroup" FromRole="CategoryGroups" ToRole="ItemCategories" />
+        </EntityType>
+        <EntityType Name="HistoryListing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Player" Type="Int32" Nullable="false" />
+          <Property Name="ServerItem" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="HQ" Type="Boolean" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ItemByServer" Relationship="Self.FK_HistoryListing_ItemsByServer" FromRole="HistoryListings" ToRole="ItemByServers" />
+          <NavigationProperty Name="Player1" Relationship="Self.FK_HistoryListing_Player" FromRole="HistoryListings" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="ItemByServer">
+          <Key>
+            <PropertyRef Name="ServerItemId" />
+          </Key>
+          <Property Name="ServerItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="Server" Type="Int32" Nullable="false" />
+          <Property Name="LastChecked" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="LowestPrice" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HistoryListings" Relationship="Self.FK_HistoryListing_ItemsByServer" FromRole="ItemByServers" ToRole="HistoryListings" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ItemsByServer_Items" FromRole="ItemByServers" ToRole="Items" />
+          <NavigationProperty Name="Server1" Relationship="Self.FK_ItemsByServer_Servers" FromRole="ItemByServers" ToRole="Servers" />
+          <NavigationProperty Name="MarketListings" Relationship="Self.FK_MarketListing_ItemsByServer" FromRole="ItemByServers" ToRole="MarketListings" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryGroup" Type="Int32" Nullable="false" />
+          <Property Name="CategoryIcon" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="CategoryGroup1" Relationship="Self.FK_ItemCategory_CategoryGroup" FromRole="ItemCategories" ToRole="CategoryGroups" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_Items_ItemCategory" FromRole="ItemCategories" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="Int32" Nullable="false" />
+          <Property Name="Singular" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plural" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StartsWithVowel" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Icon" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ItemLevel" Type="Int32" Nullable="false" />
+          <Property Name="EquipLevel" Type="Int32" Nullable="false" />
+          <Property Name="PvpRank" Type="Int32" Nullable="false" />
+          <Property Name="StackSize" Type="Int64" Nullable="false" />
+          <Property Name="Stain" Type="Int32" Nullable="false" />
+          <Property Name="ItemSearchCategory" Type="Int32" Nullable="false" />
+          <Property Name="Rarity" Type="Int32" Nullable="false" />
+          <Property Name="CanBeHQ" Type="Boolean" Nullable="false" />
+          <Property Name="IsDyeable" Type="Boolean" Nullable="false" />
+          <Property Name="IsCrestWorthy" Type="Boolean" Nullable="false" />
+          <Property Name="MaterializeType" Type="Int32" Nullable="false" />
+          <Property Name="MateriaSlotCount" Type="Int32" Nullable="false" />
+          <Property Name="EquipSlotCategory" Type="Int32" Nullable="false" />
+          <Property Name="MainModel" Type="Int64" Nullable="false" />
+          <Property Name="SubModel" Type="Int64" Nullable="false" />
+          <Property Name="BaseParam0" Type="Byte" Nullable="false" />
+          <Property Name="BaseParam1" Type="Byte" Nullable="false" />
+          <Property Name="BaseParam2" Type="Byte" Nullable="false" />
+          <Property Name="BaseParam3" Type="Byte" Nullable="false" />
+          <Property Name="BaseParam4" Type="Byte" Nullable="false" />
+          <Property Name="BaseParam5" Type="Byte" Nullable="false" />
+          <Property Name="BaseParamValue0" Type="Int32" Nullable="false" />
+          <Property Name="BaseParamValue1" Type="Int32" Nullable="false" />
+          <Property Name="BaseParamValue2" Type="Int32" Nullable="false" />
+          <Property Name="BaseParamValue3" Type="Int32" Nullable="false" />
+          <Property Name="BaseParamValue4" Type="Int32" Nullable="false" />
+          <Property Name="BaseParamValue5" Type="Int32" Nullable="false" />
+          <Property Name="SpecialBaseParam0" Type="Byte" Nullable="false" />
+          <Property Name="SpecialBaseParam1" Type="Byte" Nullable="false" />
+          <Property Name="SpecialBaseParam2" Type="Byte" Nullable="false" />
+          <Property Name="SpecialBaseParam3" Type="Byte" Nullable="false" />
+          <Property Name="SpecialBaseParam4" Type="Byte" Nullable="false" />
+          <Property Name="SpecialBaseParam5" Type="Byte" Nullable="false" />
+          <Property Name="SpecialBaseParamValue0" Type="Int32" Nullable="false" />
+          <Property Name="SpecialBaseParamValue1" Type="Int32" Nullable="false" />
+          <Property Name="SpecialBaseParamValue2" Type="Int32" Nullable="false" />
+          <Property Name="SpecialBaseParamValue3" Type="Int32" Nullable="false" />
+          <Property Name="SpecialBaseParamValue4" Type="Int32" Nullable="false" />
+          <Property Name="SpecialBaseParamValue5" Type="Int32" Nullable="false" />
+          <Property Name="SpecialBonus" Type="Int32" Nullable="false" />
+          <Property Name="RepairClasses" Type="Byte" Nullable="false" />
+          <Property Name="ItemRepair" Type="Int32" Nullable="false" />
+          <Property Name="UsableClasses" Type="Byte" Nullable="false" />
+          <Property Name="DamagePhysical" Type="Int32" Nullable="false" />
+          <Property Name="DamageMagical" Type="Int32" Nullable="false" />
+          <Property Name="Delay" Type="Int32" Nullable="false" />
+          <Property Name="BlockRate" Type="Int32" Nullable="false" />
+          <Property Name="Block" Type="Int32" Nullable="false" />
+          <Property Name="DefensePhysical" Type="Int32" Nullable="false" />
+          <Property Name="DefenseMagical" Type="Int32" Nullable="false" />
+          <Property Name="Cooldown" Type="Int32" Nullable="false" />
+          <Property Name="ItemAction" Type="Int32" Nullable="false" />
+          <Property Name="IsDisposable" Type="Boolean" Nullable="false" />
+          <Property Name="IsUnique" Type="Boolean" Nullable="false" />
+          <Property Name="IsUntradable" Type="Boolean" Nullable="false" />
+          <Property Name="PriceLow" Type="Int32" Nullable="false" />
+          <Property Name="PriceMid" Type="Int32" Nullable="false" />
+          <Property Name="PriceHigh" Type="Boolean" Nullable="false" />
+          <Property Name="EquipableByRace0" Type="Boolean" Nullable="false" />
+          <Property Name="EquipableByRace1" Type="Boolean" Nullable="false" />
+          <Property Name="EquipableByRace2" Type="Boolean" Nullable="false" />
+          <Property Name="EquipableByRace3" Type="Boolean" Nullable="false" />
+          <Property Name="EquipableByRace4" Type="Boolean" Nullable="false" />
+          <Property Name="EquipableByRace5" Type="Boolean" Nullable="false" />
+          <Property Name="EquipableByRace6" Type="Boolean" Nullable="false" />
+          <Property Name="EquipableByMales" Type="Boolean" Nullable="false" />
+          <Property Name="EquipableByFemales" Type="Byte" Nullable="false" />
+          <Property Name="ClassJobCategory" Type="Int32" Nullable="false" />
+          <Property Name="GrandCompany" Type="Byte" Nullable="false" />
+          <Property Name="GCTurnIn" Type="Byte" Nullable="false" />
+          <Property Name="ItemSeries" Type="Int32" Nullable="false" />
+          <Property Name="BaseParamModifier" Type="Boolean" Nullable="false" />
+          <Property Name="IsPVP" Type="Int32" Nullable="false" />
+          <Property Name="Glamour" Type="Int32" Nullable="false" />
+          <Property Name="Desynthesizable" Type="Boolean" Nullable="false" />
+          <Property Name="IsCollectable" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ItemByServers" Relationship="Self.FK_ItemsByServer_Items" FromRole="Items" ToRole="ItemByServers" />
+          <NavigationProperty Name="ItemCategory" Relationship="Self.FK_Items_ItemCategory" FromRole="Items" ToRole="ItemCategories" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_Recipes_Items" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes1" Relationship="Self.FK_Recipes_Items1" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes2" Relationship="Self.FK_Recipes_Items10" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes3" Relationship="Self.FK_Recipes_Items2" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes4" Relationship="Self.FK_Recipes_Items3" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes5" Relationship="Self.FK_Recipes_Items4" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes6" Relationship="Self.FK_Recipes_Items5" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes7" Relationship="Self.FK_Recipes_Items6" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes8" Relationship="Self.FK_Recipes_Items7" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes9" Relationship="Self.FK_Recipes_Items8" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="Recipes10" Relationship="Self.FK_Recipes_Items9" FromRole="Items" ToRole="Recipes" />
+          <NavigationProperty Name="ShopItems" Relationship="Self.FK_ShopItem_Items1" FromRole="Items" ToRole="ShopItem" />
+        </EntityType>
+        <EntityType Name="MarketListing">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Retainer" Type="Int32" Nullable="false" />
+          <Property Name="ServerItem" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="HQ" Type="Boolean" Nullable="false" />
+          <Property Name="City" Type="Int16" Nullable="false" />
+          <Property Name="Quantity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Materia1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Materia2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Materia3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Materia4" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Materia5" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ItemByServer" Relationship="Self.FK_MarketListing_ItemsByServer" FromRole="MarketListings" ToRole="ItemByServers" />
+          <NavigationProperty Name="Retainer1" Relationship="Self.FK_MarketListing_Retainer" FromRole="MarketListings" ToRole="Retainers" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="PlayerId" />
+          </Key>
+          <Property Name="PlayerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlayerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Server" Type="Int32" Nullable="false" />
+          <Property Name="LastPurchased" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="HistoryListings" Relationship="Self.FK_HistoryListing_Player" FromRole="Players" ToRole="HistoryListings" />
+          <NavigationProperty Name="Server1" Relationship="Self.FK_Player_Servers" FromRole="Players" ToRole="Servers" />
+        </EntityType>
+        <EntityType Name="RecipeElement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecipeLevel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="CharacterLevel" Type="Byte" Nullable="false" />
+          <Property Name="Stars" Type="Byte" Nullable="false" />
+          <Property Name="Difficulty" Type="Int32" Nullable="false" />
+          <Property Name="Quality" Type="Int32" Nullable="false" />
+          <Property Name="Durability" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_Recipes_RecipeLevels" FromRole="RecipeLevels" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="recipeId" Type="Int32" Nullable="false" />
+          <Property Name="CraftType" Type="Int32" Nullable="false" />
+          <Property Name="RecipeLevel" Type="Int32" Nullable="false" />
+          <Property Name="ResultItem" Type="Int32" Nullable="false" />
+          <Property Name="ResultAmount" Type="Int32" Nullable="false" />
+          <Property Name="Ingredient1" Type="Int32" Nullable="false" />
+          <Property Name="IngredientAmount1" Type="Byte" Nullable="false" />
+          <Property Name="Ingredient2" Type="Int32" Nullable="false" />
+          <Property Name="IngredientAmount2" Type="Byte" Nullable="false" />
+          <Property Name="Ingredient3" Type="Int32" Nullable="false" />
+          <Property Name="IngredientAmount3" Type="Byte" Nullable="false" />
+          <Property Name="Ingredient4" Type="Int32" Nullable="false" />
+          <Property Name="IngredientAmount4" Type="Byte" Nullable="false" />
+          <Property Name="Ingredient5" Type="Int32" Nullable="false" />
+          <Property Name="IngredientAmount5" Type="Byte" Nullable="false" />
+          <Property Name="Ingredient6" Type="Int32" Nullable="false" />
+          <Property Name="IngredientAmount6" Type="Byte" Nullable="false" />
+          <Property Name="Ingredient7" Type="Int32" Nullable="false" />
+          <Property Name="IngredientAmount7" Type="Byte" Nullable="false" />
+          <Property Name="CrystalType1" Type="Int32" Nullable="false" />
+          <Property Name="CrystalAmount1" Type="Byte" Nullable="false" />
+          <Property Name="CrystalType2" Type="Int32" Nullable="false" />
+          <Property Name="CrystalAmount2" Type="Byte" Nullable="false" />
+          <Property Name="RecipeElement" Type="Byte" Nullable="false" />
+          <Property Name="RecipeNotebook" Type="Int32" Nullable="false" />
+          <Property Name="IsSecondary" Type="Boolean" Nullable="false" />
+          <Property Name="Difficulty" Type="Int32" Nullable="false" />
+          <Property Name="Quality" Type="Int32" Nullable="false" />
+          <Property Name="Durability" Type="Int32" Nullable="false" />
+          <Property Name="RequiredCraftsmanship" Type="Int32" Nullable="false" />
+          <Property Name="RequiredControl" Type="Int32" Nullable="false" />
+          <Property Name="QuickSynthCraftsmanship" Type="Int32" Nullable="false" />
+          <Property Name="QuickSynthControl" Type="Int32" Nullable="false" />
+          <Property Name="CanQuickSynth" Type="Boolean" Nullable="false" />
+          <Property Name="CanHq" Type="Boolean" Nullable="false" />
+          <Property Name="RequiredItem" Type="Int32" Nullable="false" />
+          <Property Name="IsSpecializationRequired" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Recipes_Items" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item1" Relationship="Self.FK_Recipes_Items1" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item2" Relationship="Self.FK_Recipes_Items10" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item3" Relationship="Self.FK_Recipes_Items2" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item4" Relationship="Self.FK_Recipes_Items3" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item5" Relationship="Self.FK_Recipes_Items4" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item6" Relationship="Self.FK_Recipes_Items5" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item7" Relationship="Self.FK_Recipes_Items6" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item8" Relationship="Self.FK_Recipes_Items7" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item9" Relationship="Self.FK_Recipes_Items8" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="Item10" Relationship="Self.FK_Recipes_Items9" FromRole="Recipes" ToRole="Items" />
+          <NavigationProperty Name="RecipeLevel1" Relationship="Self.FK_Recipes_RecipeLevels" FromRole="Recipes" ToRole="RecipeLevels" />
+        </EntityType>
+        <EntityType Name="RetainerLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RetainerId" Type="Int32" Nullable="false" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Retainer" Relationship="Self.FK_RetainerRetainerLog" FromRole="RetainerLogs" ToRole="Retainers" />
+        </EntityType>
+        <EntityType Name="Retainer">
+          <Key>
+            <PropertyRef Name="RetainerId" />
+          </Key>
+          <Property Name="RetainerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RetainerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Server" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MarketListings" Relationship="Self.FK_MarketListing_Retainer" FromRole="Retainers" ToRole="MarketListings" />
+          <NavigationProperty Name="RetainerLogs" Relationship="Self.FK_RetainerRetainerLog" FromRole="Retainers" ToRole="RetainerLogs" />
+          <NavigationProperty Name="Server1" Relationship="Self.FK_Retainer_Servers" FromRole="Retainers" ToRole="Servers" />
+        </EntityType>
+        <EntityType Name="Server">
+          <Key>
+            <PropertyRef Name="ServerId" />
+          </Key>
+          <Property Name="ServerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ServerIp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ItemByServers" Relationship="Self.FK_ItemsByServer_Servers" FromRole="Servers" ToRole="ItemByServers" />
+          <NavigationProperty Name="Players" Relationship="Self.FK_Player_Servers" FromRole="Servers" ToRole="Players" />
+          <NavigationProperty Name="Retainers" Relationship="Self.FK_Retainer_Servers" FromRole="Servers" ToRole="Retainers" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="BeastTribe" Type="Byte" Nullable="false" />
+          <Property Name="BeastReputation" Type="Byte" Nullable="false" />
+          <Property Name="Quest" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ShopItemMaps" Relationship="Self.FK_ShopItemMap_Shop" FromRole="Shop" ToRole="ShopItemMap" />
+        </EntityType>
+        <EntityType Name="ShopItem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Quest" Type="Int32" Nullable="false" />
+          <Property Name="Achievement" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item1" Relationship="Self.FK_ShopItem_Items1" FromRole="ShopItem" ToRole="Items" />
+          <NavigationProperty Name="ShopItemMaps" Relationship="Self.FK_ShopItemMap_ShopItem" FromRole="ShopItem" ToRole="ShopItemMap" />
+        </EntityType>
+        <EntityType Name="ShopItemMap">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Shop" Type="Int32" Nullable="false" />
+          <Property Name="ShopItem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Shop1" Relationship="Self.FK_ShopItemMap_Shop" FromRole="ShopItemMap" ToRole="Shop" />
+          <NavigationProperty Name="ShopItem1" Relationship="Self.FK_ShopItemMap_ShopItem" FromRole="ShopItemMap" ToRole="ShopItem" />
+        </EntityType>
+        <Association Name="FK_ItemCategory_CategoryGroup">
+          <End Role="CategoryGroups" Type="Self.CategoryGroup" Multiplicity="1" />
+          <End Role="ItemCategories" Type="Self.ItemCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryGroups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="ItemCategories">
+              <PropertyRef Name="CategoryGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoryListing_ItemsByServer">
+          <End Role="ItemByServers" Type="Self.ItemByServer" Multiplicity="1" />
+          <End Role="HistoryListings" Type="Self.HistoryListing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemByServers">
+              <PropertyRef Name="ServerItemId" />
+            </Principal>
+            <Dependent Role="HistoryListings">
+              <PropertyRef Name="ServerItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoryListing_Player">
+          <End Role="Players" Type="Self.Player" Multiplicity="1" />
+          <End Role="HistoryListings" Type="Self.HistoryListing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Players">
+              <PropertyRef Name="PlayerId" />
+            </Principal>
+            <Dependent Role="HistoryListings">
+              <PropertyRef Name="Player" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsByServer_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="ItemByServers" Type="Self.ItemByServer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="ItemByServers">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemsByServer_Servers">
+          <End Role="Servers" Type="Self.Server" Multiplicity="1" />
+          <End Role="ItemByServers" Type="Self.ItemByServer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servers">
+              <PropertyRef Name="ServerId" />
+            </Principal>
+            <Dependent Role="ItemByServers">
+              <PropertyRef Name="Server" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarketListing_ItemsByServer">
+          <End Role="ItemByServers" Type="Self.ItemByServer" Multiplicity="1" />
+          <End Role="MarketListings" Type="Self.MarketListing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemByServers">
+              <PropertyRef Name="ServerItemId" />
+            </Principal>
+            <Dependent Role="MarketListings">
+              <PropertyRef Name="ServerItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_ItemCategory">
+          <End Role="ItemCategories" Type="Self.ItemCategory" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemCategories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items1">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items10">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="RequiredItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items2">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items3">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items4">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient5" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items5">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient6" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items6">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="Ingredient7" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items7">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="CrystalType1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items8">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="CrystalType2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_Items9">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="ResultItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopItem_Items1">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="ShopItem" Type="Self.ShopItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="ShopItem">
+              <PropertyRef Name="Item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarketListing_Retainer">
+          <End Role="Retainers" Type="Self.Retainer" Multiplicity="1" />
+          <End Role="MarketListings" Type="Self.MarketListing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retainers">
+              <PropertyRef Name="RetainerId" />
+            </Principal>
+            <Dependent Role="MarketListings">
+              <PropertyRef Name="Retainer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Player_Servers">
+          <End Role="Servers" Type="Self.Server" Multiplicity="1" />
+          <End Role="Players" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servers">
+              <PropertyRef Name="ServerId" />
+            </Principal>
+            <Dependent Role="Players">
+              <PropertyRef Name="Server" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recipes_RecipeLevels">
+          <End Role="RecipeLevels" Type="Self.RecipeLevel" Multiplicity="1" />
+          <End Role="Recipes" Type="Self.Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RecipeLevels">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="RecipeLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RetainerRetainerLog">
+          <End Role="Retainers" Type="Self.Retainer" Multiplicity="1" />
+          <End Role="RetainerLogs" Type="Self.RetainerLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retainers">
+              <PropertyRef Name="RetainerId" />
+            </Principal>
+            <Dependent Role="RetainerLogs">
+              <PropertyRef Name="RetainerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Retainer_Servers">
+          <End Role="Servers" Type="Self.Server" Multiplicity="1" />
+          <End Role="Retainers" Type="Self.Retainer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servers">
+              <PropertyRef Name="ServerId" />
+            </Principal>
+            <Dependent Role="Retainers">
+              <PropertyRef Name="Server" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopItemMap_Shop">
+          <End Role="Shop" Type="Self.Shop" Multiplicity="1" />
+          <End Role="ShopItemMap" Type="Self.ShopItemMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ShopItemMap">
+              <PropertyRef Name="Shop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShopItemMap_ShopItem">
+          <End Role="ShopItem" Type="Self.ShopItem" Multiplicity="1" />
+          <End Role="ShopItemMap" Type="Self.ShopItemMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopItem">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ShopItemMap">
+              <PropertyRef Name="ShopItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ffxiv_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CategoryGroups" EntityType="Self.CategoryGroup" />
+          <EntitySet Name="HistoryListings" EntityType="Self.HistoryListing" />
+          <EntitySet Name="ItemByServers" EntityType="Self.ItemByServer" />
+          <EntitySet Name="ItemCategories" EntityType="Self.ItemCategory" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="MarketListings" EntityType="Self.MarketListing" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <EntitySet Name="RecipeElements" EntityType="Self.RecipeElement" />
+          <EntitySet Name="RecipeLevels" EntityType="Self.RecipeLevel" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipe" />
+          <EntitySet Name="RetainerLogs" EntityType="Self.RetainerLog" />
+          <EntitySet Name="Retainers" EntityType="Self.Retainer" />
+          <EntitySet Name="Servers" EntityType="Self.Server" />
+          <EntitySet Name="Shops" EntityType="Self.Shop" />
+          <EntitySet Name="ShopItems" EntityType="Self.ShopItem" />
+          <EntitySet Name="ShopItemMaps" EntityType="Self.ShopItemMap" />
+          <AssociationSet Name="FK_ItemCategory_CategoryGroup" Association="Self.FK_ItemCategory_CategoryGroup">
+            <End Role="CategoryGroups" EntitySet="CategoryGroups" />
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoryListing_ItemsByServer" Association="Self.FK_HistoryListing_ItemsByServer">
+            <End Role="ItemByServers" EntitySet="ItemByServers" />
+            <End Role="HistoryListings" EntitySet="HistoryListings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoryListing_Player" Association="Self.FK_HistoryListing_Player">
+            <End Role="Players" EntitySet="Players" />
+            <End Role="HistoryListings" EntitySet="HistoryListings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsByServer_Items" Association="Self.FK_ItemsByServer_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ItemByServers" EntitySet="ItemByServers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemsByServer_Servers" Association="Self.FK_ItemsByServer_Servers">
+            <End Role="Servers" EntitySet="Servers" />
+            <End Role="ItemByServers" EntitySet="ItemByServers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarketListing_ItemsByServer" Association="Self.FK_MarketListing_ItemsByServer">
+            <End Role="ItemByServers" EntitySet="ItemByServers" />
+            <End Role="MarketListings" EntitySet="MarketListings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_ItemCategory" Association="Self.FK_Items_ItemCategory">
+            <End Role="ItemCategories" EntitySet="ItemCategories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items" Association="Self.FK_Recipes_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items1" Association="Self.FK_Recipes_Items1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items10" Association="Self.FK_Recipes_Items10">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items2" Association="Self.FK_Recipes_Items2">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items3" Association="Self.FK_Recipes_Items3">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items4" Association="Self.FK_Recipes_Items4">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items5" Association="Self.FK_Recipes_Items5">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items6" Association="Self.FK_Recipes_Items6">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items7" Association="Self.FK_Recipes_Items7">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items8" Association="Self.FK_Recipes_Items8">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_Items9" Association="Self.FK_Recipes_Items9">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopItem_Items1" Association="Self.FK_ShopItem_Items1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="ShopItem" EntitySet="ShopItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarketListing_Retainer" Association="Self.FK_MarketListing_Retainer">
+            <End Role="Retainers" EntitySet="Retainers" />
+            <End Role="MarketListings" EntitySet="MarketListings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Player_Servers" Association="Self.FK_Player_Servers">
+            <End Role="Servers" EntitySet="Servers" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recipes_RecipeLevels" Association="Self.FK_Recipes_RecipeLevels">
+            <End Role="RecipeLevels" EntitySet="RecipeLevels" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RetainerRetainerLog" Association="Self.FK_RetainerRetainerLog">
+            <End Role="Retainers" EntitySet="Retainers" />
+            <End Role="RetainerLogs" EntitySet="RetainerLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Retainer_Servers" Association="Self.FK_Retainer_Servers">
+            <End Role="Servers" EntitySet="Servers" />
+            <End Role="Retainers" EntitySet="Retainers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopItemMap_Shop" Association="Self.FK_ShopItemMap_Shop">
+            <End Role="Shop" EntitySet="Shops" />
+            <End Role="ShopItemMap" EntitySet="ShopItemMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopItemMap_ShopItem" Association="Self.FK_ShopItemMap_ShopItem">
+            <End Role="ShopItem" EntitySet="ShopItems" />
+            <End Role="ShopItemMap" EntitySet="ShopItemMaps" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ffxiv_dbModelStoreContainer" CdmEntityContainer="ffxiv_dbEntities">
+          <EntitySetMapping Name="CategoryGroups">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.CategoryGroup">
+              <MappingFragment StoreEntitySet="CategoryGroups">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoryListings">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.HistoryListing">
+              <MappingFragment StoreEntitySet="HistoryListings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Player" ColumnName="Player" />
+                <ScalarProperty Name="ServerItem" ColumnName="ServerItem" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="HQ" ColumnName="HQ" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemByServers">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.ItemByServer">
+              <MappingFragment StoreEntitySet="ItemByServers">
+                <ScalarProperty Name="ServerItemId" ColumnName="ServerItemId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+                <ScalarProperty Name="LastChecked" ColumnName="LastChecked" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="LowestPrice" ColumnName="LowestPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemCategories">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.ItemCategory">
+              <MappingFragment StoreEntitySet="ItemCategories">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryGroup" ColumnName="CategoryGroup" />
+                <ScalarProperty Name="CategoryIcon" ColumnName="CategoryIcon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Singular" ColumnName="Singular" />
+                <ScalarProperty Name="Plural" ColumnName="Plural" />
+                <ScalarProperty Name="StartsWithVowel" ColumnName="StartsWithVowel" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="ItemLevel" ColumnName="ItemLevel" />
+                <ScalarProperty Name="EquipLevel" ColumnName="EquipLevel" />
+                <ScalarProperty Name="PvpRank" ColumnName="PvpRank" />
+                <ScalarProperty Name="StackSize" ColumnName="StackSize" />
+                <ScalarProperty Name="Stain" ColumnName="Stain" />
+                <ScalarProperty Name="ItemSearchCategory" ColumnName="ItemSearchCategory" />
+                <ScalarProperty Name="Rarity" ColumnName="Rarity" />
+                <ScalarProperty Name="CanBeHQ" ColumnName="CanBeHQ" />
+                <ScalarProperty Name="IsDyeable" ColumnName="IsDyeable" />
+                <ScalarProperty Name="IsCrestWorthy" ColumnName="IsCrestWorthy" />
+                <ScalarProperty Name="MaterializeType" ColumnName="MaterializeType" />
+                <ScalarProperty Name="MateriaSlotCount" ColumnName="MateriaSlotCount" />
+                <ScalarProperty Name="EquipSlotCategory" ColumnName="EquipSlotCategory" />
+                <ScalarProperty Name="MainModel" ColumnName="MainModel" />
+                <ScalarProperty Name="SubModel" ColumnName="SubModel" />
+                <ScalarProperty Name="BaseParam0" ColumnName="BaseParam0" />
+                <ScalarProperty Name="BaseParam1" ColumnName="BaseParam1" />
+                <ScalarProperty Name="BaseParam2" ColumnName="BaseParam2" />
+                <ScalarProperty Name="BaseParam3" ColumnName="BaseParam3" />
+                <ScalarProperty Name="BaseParam4" ColumnName="BaseParam4" />
+                <ScalarProperty Name="BaseParam5" ColumnName="BaseParam5" />
+                <ScalarProperty Name="BaseParamValue0" ColumnName="BaseParamValue0" />
+                <ScalarProperty Name="BaseParamValue1" ColumnName="BaseParamValue1" />
+                <ScalarProperty Name="BaseParamValue2" ColumnName="BaseParamValue2" />
+                <ScalarProperty Name="BaseParamValue3" ColumnName="BaseParamValue3" />
+                <ScalarProperty Name="BaseParamValue4" ColumnName="BaseParamValue4" />
+                <ScalarProperty Name="BaseParamValue5" ColumnName="BaseParamValue5" />
+                <ScalarProperty Name="SpecialBaseParam0" ColumnName="SpecialBaseParam0" />
+                <ScalarProperty Name="SpecialBaseParam1" ColumnName="SpecialBaseParam1" />
+                <ScalarProperty Name="SpecialBaseParam2" ColumnName="SpecialBaseParam2" />
+                <ScalarProperty Name="SpecialBaseParam3" ColumnName="SpecialBaseParam3" />
+                <ScalarProperty Name="SpecialBaseParam4" ColumnName="SpecialBaseParam4" />
+                <ScalarProperty Name="SpecialBaseParam5" ColumnName="SpecialBaseParam5" />
+                <ScalarProperty Name="SpecialBaseParamValue0" ColumnName="SpecialBaseParamValue0" />
+                <ScalarProperty Name="SpecialBaseParamValue1" ColumnName="SpecialBaseParamValue1" />
+                <ScalarProperty Name="SpecialBaseParamValue2" ColumnName="SpecialBaseParamValue2" />
+                <ScalarProperty Name="SpecialBaseParamValue3" ColumnName="SpecialBaseParamValue3" />
+                <ScalarProperty Name="SpecialBaseParamValue4" ColumnName="SpecialBaseParamValue4" />
+                <ScalarProperty Name="SpecialBaseParamValue5" ColumnName="SpecialBaseParamValue5" />
+                <ScalarProperty Name="SpecialBonus" ColumnName="SpecialBonus" />
+                <ScalarProperty Name="RepairClasses" ColumnName="RepairClasses" />
+                <ScalarProperty Name="ItemRepair" ColumnName="ItemRepair" />
+                <ScalarProperty Name="UsableClasses" ColumnName="UsableClasses" />
+                <ScalarProperty Name="DamagePhysical" ColumnName="DamagePhysical" />
+                <ScalarProperty Name="DamageMagical" ColumnName="DamageMagical" />
+                <ScalarProperty Name="Delay" ColumnName="Delay" />
+                <ScalarProperty Name="BlockRate" ColumnName="BlockRate" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="DefensePhysical" ColumnName="DefensePhysical" />
+                <ScalarProperty Name="DefenseMagical" ColumnName="DefenseMagical" />
+                <ScalarProperty Name="Cooldown" ColumnName="Cooldown" />
+                <ScalarProperty Name="ItemAction" ColumnName="ItemAction" />
+                <ScalarProperty Name="IsDisposable" ColumnName="IsDisposable" />
+                <ScalarProperty Name="IsUnique" ColumnName="IsUnique" />
+                <ScalarProperty Name="IsUntradable" ColumnName="IsUntradable" />
+                <ScalarProperty Name="PriceLow" ColumnName="PriceLow" />
+                <ScalarProperty Name="PriceMid" ColumnName="PriceMid" />
+                <ScalarProperty Name="PriceHigh" ColumnName="PriceHigh" />
+                <ScalarProperty Name="EquipableByRace0" ColumnName="EquipableByRace0" />
+                <ScalarProperty Name="EquipableByRace1" ColumnName="EquipableByRace1" />
+                <ScalarProperty Name="EquipableByRace2" ColumnName="EquipableByRace2" />
+                <ScalarProperty Name="EquipableByRace3" ColumnName="EquipableByRace3" />
+                <ScalarProperty Name="EquipableByRace4" ColumnName="EquipableByRace4" />
+                <ScalarProperty Name="EquipableByRace5" ColumnName="EquipableByRace5" />
+                <ScalarProperty Name="EquipableByRace6" ColumnName="EquipableByRace6" />
+                <ScalarProperty Name="EquipableByMales" ColumnName="EquipableByMales" />
+                <ScalarProperty Name="EquipableByFemales" ColumnName="EquipableByFemales" />
+                <ScalarProperty Name="ClassJobCategory" ColumnName="ClassJobCategory" />
+                <ScalarProperty Name="GrandCompany" ColumnName="GrandCompany" />
+                <ScalarProperty Name="GCTurnIn" ColumnName="GCTurnIn" />
+                <ScalarProperty Name="ItemSeries" ColumnName="ItemSeries" />
+                <ScalarProperty Name="BaseParamModifier" ColumnName="BaseParamModifier" />
+                <ScalarProperty Name="IsPVP" ColumnName="IsPVP" />
+                <ScalarProperty Name="Glamour" ColumnName="Glamour" />
+                <ScalarProperty Name="Desynthesizable" ColumnName="Desynthesizable" />
+                <ScalarProperty Name="IsCollectable" ColumnName="IsCollectable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarketListings">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.MarketListing">
+              <MappingFragment StoreEntitySet="MarketListings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Retainer" ColumnName="Retainer" />
+                <ScalarProperty Name="ServerItem" ColumnName="ServerItem" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="HQ" ColumnName="HQ" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Materia1" ColumnName="Materia1" />
+                <ScalarProperty Name="Materia2" ColumnName="Materia2" />
+                <ScalarProperty Name="Materia3" ColumnName="Materia3" />
+                <ScalarProperty Name="Materia4" ColumnName="Materia4" />
+                <ScalarProperty Name="Materia5" ColumnName="Materia5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.Player">
+              <MappingFragment StoreEntitySet="Players">
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="PlayerName" ColumnName="PlayerName" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+                <ScalarProperty Name="LastPurchased" ColumnName="LastPurchased" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeElements">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.RecipeElement">
+              <MappingFragment StoreEntitySet="RecipeElements">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeLevels">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.RecipeLevel">
+              <MappingFragment StoreEntitySet="RecipeLevels">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CharacterLevel" ColumnName="CharacterLevel" />
+                <ScalarProperty Name="Stars" ColumnName="Stars" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Quality" ColumnName="Quality" />
+                <ScalarProperty Name="Durability" ColumnName="Durability" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipes">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.Recipe">
+              <MappingFragment StoreEntitySet="Recipes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="recipeId" ColumnName="recipeId" />
+                <ScalarProperty Name="CraftType" ColumnName="CraftType" />
+                <ScalarProperty Name="RecipeLevel" ColumnName="RecipeLevel" />
+                <ScalarProperty Name="ResultItem" ColumnName="ResultItem" />
+                <ScalarProperty Name="ResultAmount" ColumnName="ResultAmount" />
+                <ScalarProperty Name="Ingredient1" ColumnName="Ingredient1" />
+                <ScalarProperty Name="IngredientAmount1" ColumnName="IngredientAmount1" />
+                <ScalarProperty Name="Ingredient2" ColumnName="Ingredient2" />
+                <ScalarProperty Name="IngredientAmount2" ColumnName="IngredientAmount2" />
+                <ScalarProperty Name="Ingredient3" ColumnName="Ingredient3" />
+                <ScalarProperty Name="IngredientAmount3" ColumnName="IngredientAmount3" />
+                <ScalarProperty Name="Ingredient4" ColumnName="Ingredient4" />
+                <ScalarProperty Name="IngredientAmount4" ColumnName="IngredientAmount4" />
+                <ScalarProperty Name="Ingredient5" ColumnName="Ingredient5" />
+                <ScalarProperty Name="IngredientAmount5" ColumnName="IngredientAmount5" />
+                <ScalarProperty Name="Ingredient6" ColumnName="Ingredient6" />
+                <ScalarProperty Name="IngredientAmount6" ColumnName="IngredientAmount6" />
+                <ScalarProperty Name="Ingredient7" ColumnName="Ingredient7" />
+                <ScalarProperty Name="IngredientAmount7" ColumnName="IngredientAmount7" />
+                <ScalarProperty Name="CrystalType1" ColumnName="CrystalType1" />
+                <ScalarProperty Name="CrystalAmount1" ColumnName="CrystalAmount1" />
+                <ScalarProperty Name="CrystalType2" ColumnName="CrystalType2" />
+                <ScalarProperty Name="CrystalAmount2" ColumnName="CrystalAmount2" />
+                <ScalarProperty Name="RecipeElement" ColumnName="RecipeElement" />
+                <ScalarProperty Name="RecipeNotebook" ColumnName="RecipeNotebook" />
+                <ScalarProperty Name="IsSecondary" ColumnName="IsSecondary" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+                <ScalarProperty Name="Quality" ColumnName="Quality" />
+                <ScalarProperty Name="Durability" ColumnName="Durability" />
+                <ScalarProperty Name="RequiredCraftsmanship" ColumnName="RequiredCraftsmanship" />
+                <ScalarProperty Name="RequiredControl" ColumnName="RequiredControl" />
+                <ScalarProperty Name="QuickSynthCraftsmanship" ColumnName="QuickSynthCraftsmanship" />
+                <ScalarProperty Name="QuickSynthControl" ColumnName="QuickSynthControl" />
+                <ScalarProperty Name="CanQuickSynth" ColumnName="CanQuickSynth" />
+                <ScalarProperty Name="CanHq" ColumnName="CanHq" />
+                <ScalarProperty Name="RequiredItem" ColumnName="RequiredItem" />
+                <ScalarProperty Name="IsSpecializationRequired" ColumnName="IsSpecializationRequired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RetainerLogs">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.RetainerLog">
+              <MappingFragment StoreEntitySet="RetainerLogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RetainerId" ColumnName="RetainerId" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Retainers">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.Retainer">
+              <MappingFragment StoreEntitySet="Retainers">
+                <ScalarProperty Name="RetainerId" ColumnName="RetainerId" />
+                <ScalarProperty Name="RetainerName" ColumnName="RetainerName" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servers">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.Server">
+              <MappingFragment StoreEntitySet="Servers">
+                <ScalarProperty Name="ServerId" ColumnName="ServerId" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="ServerIp" ColumnName="ServerIp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shops">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BeastTribe" ColumnName="BeastTribe" />
+                <ScalarProperty Name="BeastReputation" ColumnName="BeastReputation" />
+                <ScalarProperty Name="Quest" ColumnName="Quest" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopItems">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.ShopItem">
+              <MappingFragment StoreEntitySet="ShopItem">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Quest" ColumnName="Quest" />
+                <ScalarProperty Name="Achievement" ColumnName="Achievement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopItemMaps">
+            <EntityTypeMapping TypeName="ffxiv_dbModel.ShopItemMap">
+              <MappingFragment StoreEntitySet="ShopItemMap">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Shop" ColumnName="Shop" />
+                <ScalarProperty Name="ShopItem" ColumnName="ShopItem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

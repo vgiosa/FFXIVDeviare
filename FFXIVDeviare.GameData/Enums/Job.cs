@@ -1,0 +1,40 @@
+﻿namespace FFXIVDeviare.GameData.Enums
+{
+    public enum Job
+    {
+        Adventurer = 0,
+        Marauder,
+        Gladiator,
+        Pugilist,
+        Lancer,
+        Archer,
+        Conjurer,
+        Thaumaturge,
+        Arcanist,
+        Rogue,
+        Warrior,
+        Paladin,
+        Monk,
+        Dragoon,
+        Bard,
+        WhiteMage,
+        BlackMage,
+        Summoner,
+        Scholar,
+        Ninja,
+        DarkKnight,
+        Astrologian,
+        Machinist,
+        Alchemist,
+        Armorer,
+        Blacksmith,
+        Carpenter,
+        Culinarian,
+        Goldsmith,
+        Leatherworker,
+        Weaver,
+        Botanist,
+        Fisher,
+        Miner
+    }
+}

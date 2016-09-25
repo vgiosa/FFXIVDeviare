@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A7D65EB-3DE3-4631-B286-CC73A3126002}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SaintCoinach</RootNamespace>
+    <AssemblyName>SaintCoinach</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.3\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.101.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.101.0\lib\net451\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.101.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.101.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.101.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.101.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EorzeaDateTime.cs" />
+    <Compile Include="EorzeaDateTime.Formatter.cs" />
+    <Compile Include="Ex\DataSheet.Enumerator.cs" />
+    <Compile Include="Ex\MultiSheet.Enumerator.cs" />
+    <Compile Include="Ex\PartialDataSheet.Enumerator.cs" />
+    <Compile Include="Xiv\CompanionTransient.cs" />
+    <Compile Include="Xiv\MinionRace.cs" />
+    <Compile Include="Xiv\MinionSkillType.cs" />
+    <Compile Include="Xiv\Quad.cs" />
+    <Compile Include="Ex\Relational\Update\UpdateProgress.cs" />
+    <Compile Include="Ex\Relational\ValueConverters\GenericReferenceConverter.cs" />
+    <Compile Include="Ex\Relational\ValueConverters\MultiReferenceConverter.cs" />
+    <Compile Include="Graphics\Bone.cs" />
+    <Compile Include="ByteArrayExtensions.cs" />
+    <Compile Include="Graphics\BoundingBox.cs" />
+    <Compile Include="Graphics\ImcFile.cs" />
+    <Compile Include="Graphics\ImcPart.cs" />
+    <Compile Include="Graphics\ImcVariant.cs" />
+    <Compile Include="Graphics\Material.cs" />
+    <Compile Include="Graphics\MaterialDefinition.cs" />
+    <Compile Include="Graphics\MaterialHeader.cs" />
+    <Compile Include="Graphics\MaterialMetadataHeader.cs" />
+    <Compile Include="Graphics\MaterialTextureParameter.cs" />
+    <Compile Include="Graphics\Mesh.cs" />
+    <Compile Include="Graphics\MeshPart.cs" />
+    <Compile Include="Graphics\ModelAttribute.cs" />
+    <Compile Include="Graphics\ModelVariantIdentifier.cs" />
+    <Compile Include="Graphics\PapAnimation.cs" />
+    <Compile Include="Graphics\PapFile.cs" />
+    <Compile Include="Graphics\Sgb\ISgbData.cs" />
+    <Compile Include="Graphics\Sgb\ISgbGroupEntry.cs" />
+    <Compile Include="Graphics\Sgb\SgbGroup.cs" />
+    <Compile Include="Graphics\Sgb\SgbDataType.cs" />
+    <Compile Include="Graphics\Sgb\SgbFile.cs" />
+    <Compile Include="Graphics\Sgb\SgbGroupEntryType.cs" />
+    <Compile Include="Graphics\Sgb\SgbModelEntry.cs" />
+    <Compile Include="Graphics\SklbFile.cs" />
+    <Compile Include="Graphics\Territory.cs" />
+    <Compile Include="Graphics\Lgb\ILgbEntry.cs" />
+    <Compile Include="Graphics\Lgb\LgbEntryType.cs" />
+    <Compile Include="Graphics\Lgb\LgbFile.cs" />
+    <Compile Include="Graphics\Lgb\LgbGimmickEntry.cs" />
+    <Compile Include="Graphics\Lgb\LgbGroup.cs" />
+    <Compile Include="Graphics\Lgb\LgbModelEntry.cs" />
+    <Compile Include="Graphics\TerritoryParts\Terrain.cs" />
+    <Compile Include="Graphics\TransformedModel.cs" />
+    <Compile Include="Graphics\Vector2.cs" />
+    <Compile Include="Graphics\Vector3.cs" />
+    <Compile Include="Graphics\Vertex.cs" />
+    <Compile Include="Graphics\VertexDataType.cs" />
+    <Compile Include="Graphics\VertexFormat.cs" />
+    <Compile Include="Graphics\VertexFormatElement.cs" />
+    <Compile Include="Graphics\MeshHeader.cs" />
+    <Compile Include="Graphics\Model.cs" />
+    <Compile Include="Graphics\ModelDefinitionHeader.cs" />
+    <Compile Include="Graphics\ModelDefinition.cs" />
+    <Compile Include="Graphics\ModelFile.cs" />
+    <Compile Include="Graphics\ModelHeader.cs" />
+    <Compile Include="Graphics\MeshPartHeader.cs" />
+    <Compile Include="Graphics\ShPk\Parameter.cs" />
+    <Compile Include="Graphics\ShPk\ParameterHeader.cs" />
+    <Compile Include="Graphics\ShPk\ParameterType.cs" />
+    <Compile Include="Graphics\ShPk\ShaderHeader.cs" />
+    <Compile Include="Graphics\ShPk\ShaderParameterReference.cs" />
+    <Compile Include="Graphics\ShPk\ShaderType.cs" />
+    <Compile Include="Graphics\ShPk\ShPkFile.cs" />
+    <Compile Include="Graphics\ShPk\ShPkHeader.cs" />
+    <Compile Include="Graphics\Unknowns\MaterialStruct1.cs" />
+    <Compile Include="Graphics\Unknowns\MaterialStruct2.cs" />
+    <Compile Include="Graphics\Unknowns\ModelStruct1.cs" />
+    <Compile Include="Graphics\Unknowns\ModelStruct2.cs" />
+    <Compile Include="Graphics\Unknowns\ModelStruct3.cs" />
+    <Compile Include="Graphics\Unknowns\BoneList.cs" />
+    <Compile Include="Graphics\Unknowns\ModelStruct5.cs" />
+    <Compile Include="Graphics\Unknowns\ModelStruct6.cs" />
+    <Compile Include="Graphics\Unknowns\ModelStruct7.cs" />
+    <Compile Include="Graphics\Unknowns\BoneIndices.cs" />
+    <Compile Include="Graphics\ModelBoundingBoxes.cs" />
+    <Compile Include="Graphics\Vector4.cs" />
+    <Compile Include="Graphics\VertexAttribute.cs" />
+    <Compile Include="Graphics\VertexReader.cs" />
+    <Compile Include="Imaging\GftdEntry.cs" />
+    <Compile Include="Imaging\GraphicsFileTextureDefinition.cs" />
+    <Compile Include="Imaging\IconHelper.cs" />
+    <Compile Include="IO\EmptyFile.cs" />
+    <Compile Include="IO\IIndexFile.cs" />
+    <Compile Include="IO\Index2.cs" />
+    <Compile Include="IO\Index2File.cs" />
+    <Compile Include="IO\Index2Header.cs" />
+    <Compile Include="IO\Index2Source.cs" />
+    <Compile Include="IO\Index2Source.Enumerator.cs" />
+    <Compile Include="IO\IndexSource.cs" />
+    <Compile Include="IO\IndexSource.Enumerator.cs" />
+    <Compile Include="IO\IPackSource.cs" />
+    <Compile Include="IO\PackIdentifier.cs" />
+    <Compile Include="Libra\BNpcName.Parse.cs" />
+    <Compile Include="Libra\ENpcResident.Parse.cs" />
+    <Compile Include="Libra\Entities.cs" />
+    <Compile Include="Libra\Item.Parse.cs" />
+    <Compile Include="Libra\JsonReaderExtensions.cs" />
+    <Compile Include="OrderedBitConverter.cs" />
+    <Compile Include="Ex\Column.cs" />
+    <Compile Include="Ex\DataReader.cs" />
+    <Compile Include="Ex\DataReaders\DelegateDataReader.cs" />
+    <Compile Include="Ex\DataReaders\PackedBooleanDataReader.cs" />
+    <Compile Include="Ex\DataReaders\StringDataReader.cs" />
+    <Compile Include="Ex\ExCollection.cs" />
+    <Compile Include="Ex\Header.cs" />
+    <Compile Include="Ex\IDataRow.cs" />
+    <Compile Include="Ex\IDataSheet.Generic.cs" />
+    <Compile Include="Ex\IDataSheet.cs" />
+    <Compile Include="Ex\IMultiRow.cs" />
+    <Compile Include="Ex\IMultiSheet.cs" />
+    <Compile Include="Ex\IMultiSheet.Generic.cs" />
+    <Compile Include="Ex\IRow.cs" />
+    <Compile Include="Ex\ISheet.cs" />
+    <Compile Include="Ex\ISheet.Generic.cs" />
+    <Compile Include="Ex\Language.cs" />
+    <Compile Include="Ex\MultiRow.cs" />
+    <Compile Include="Ex\PartialDataSheet.cs" />
+    <Compile Include="Ex\MultiSheet.cs" />
+    <Compile Include="Ex\Relational\Definition\GroupDataDefinition.cs" />
+    <Compile Include="Ex\Relational\Definition\IDataDefinition.cs" />
+    <Compile Include="Ex\Relational\Definition\PositionedDataDefinition.cs" />
+    <Compile Include="Ex\Relational\Definition\RelationDefinition.cs" />
+    <Compile Include="Ex\Relational\Definition\RepeatDataDefinition.cs" />
+    <Compile Include="Ex\Relational\Definition\SheetDefinition.cs" />
+    <Compile Include="Ex\Relational\Definition\SingleDataDefinition.cs" />
+    <Compile Include="Ex\Relational\IRelationalDataRow.cs" />
+    <Compile Include="Ex\Relational\IRelationalDataSheet.cs" />
+    <Compile Include="Ex\Relational\IRelationalDataSheet.Generic.cs" />
+    <Compile Include="Ex\Relational\IRelationalMultiRow.cs" />
+    <Compile Include="Ex\Relational\IRelationalMultiSheet.cs" />
+    <Compile Include="Ex\Relational\IRelationalMultiSheet.Generic.cs" />
+    <Compile Include="Ex\Relational\IRelationalRow.cs" />
+    <Compile Include="Ex\Relational\IRelationalSheet.cs" />
+    <Compile Include="Ex\Relational\IRelationalSheet.Generic.cs" />
+    <Compile Include="Ex\Relational\IValueConverter.cs" />
+    <Compile Include="Ex\Relational\RelationalColumn.cs" />
+    <Compile Include="Ex\Relational\RelationalExCollection.cs" />
+    <Compile Include="Ex\Relational\RelationalHeader.cs" />
+    <Compile Include="Ex\Relational\RelationalMultiRow.cs" />
+    <Compile Include="Ex\Relational\RelationalMultiSheet.cs" />
+    <Compile Include="Ex\Relational\RelationalPartialDataSheet.cs" />
+    <Compile Include="Ex\Relational\RelationalDataRow.cs" />
+    <Compile Include="Ex\Relational\RelationalDataSheet.cs" />
+    <Compile Include="Ex\DataRow.cs" />
+    <Compile Include="Ex\DataSheet.cs" />
+    <Compile Include="Ex\Relational\Serialization\ExRelationEventEmitter.cs" />
+    <Compile Include="Ex\Relational\Serialization\ExRelationSerializer.cs" />
+    <Compile Include="Ex\Relational\Update\Changes\DefinitionMoved.cs" />
+    <Compile Include="Ex\Relational\Update\Changes\DefinitionRemoved.cs" />
+    <Compile Include="Ex\Relational\Update\Changes\FieldChanged.cs" />
+    <Compile Include="Ex\Relational\Update\Changes\RowAdded.cs" />
+    <Compile Include="Ex\Relational\Update\Changes\RowRemoved.cs" />
+    <Compile Include="Ex\Relational\Update\Changes\SheetLanguageAdded.cs" />
+    <Compile Include="Ex\Relational\Update\Changes\SheetLanguageRemoved.cs" />
+    <Compile Include="Ex\Relational\Update\Changes\SheetRemoved.cs" />
+    <Compile Include="Ex\Relational\Update\Changes\SheetTypeChanged.cs" />
+    <Compile Include="Ex\Relational\Update\ChangeType.cs" />
+    <Compile Include="Ex\Relational\Update\Comparer.cs" />
+    <Compile Include="Ex\Relational\Update\Comparer.Levenshtein.cs" />
+    <Compile Include="Ex\Relational\Update\DefinitionUpdater.cs" />
+    <Compile Include="Ex\Relational\Update\IChange.cs" />
+    <Compile Include="Ex\Relational\Update\RelationUpdater.cs" />
+    <Compile Include="Ex\Relational\Update\SheetComparer.cs" />
+    <Compile Include="Ex\Relational\Update\SheetUpdater.cs" />
+    <Compile Include="Ex\Relational\ValueConverters\ColorConverter.cs" />
+    <Compile Include="Ex\Relational\ValueConverters\IconConverter.cs" />
+    <Compile Include="Ex\Relational\ValueConverters\SheetLinkConverter.cs" />
+    <Compile Include="Graphics\ModelQuality.cs" />
+    <Compile Include="HalfHelper.cs" />
+    <Compile Include="Imaging\ImageConverter.cs" />
+    <Compile Include="Imaging\ImageFile.cs" />
+    <Compile Include="Imaging\ImageFormat.cs" />
+    <Compile Include="Imaging\ImageHeader.cs" />
+    <Compile Include="IO\FileFactory.cs" />
+    <Compile Include="IO\FileCommonHeader.cs" />
+    <Compile Include="IO\Hash.cs" />
+    <Compile Include="IO\Index.cs" />
+    <Compile Include="IO\IndexDirectory.cs" />
+    <Compile Include="IO\IndexFile.cs" />
+    <Compile Include="IO\IndexHeader.cs" />
+    <Compile Include="IO\FileDefault.cs" />
+    <Compile Include="IO\Pack.cs" />
+    <Compile Include="IO\Directory.cs" />
+    <Compile Include="IO\Directory.Enumeration.cs" />
+    <Compile Include="IO\File.cs" />
+    <Compile Include="IO\FileType.cs" />
+    <Compile Include="IO\PackCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sound\ScdOggCryptType.cs" />
+    <Compile Include="Sound\ScdAdpcmEntry.cs" />
+    <Compile Include="Sound\ScdCodec.cs" />
+    <Compile Include="Sound\ScdEntry.cs" />
+    <Compile Include="Sound\ScdEntryHeader.cs" />
+    <Compile Include="Sound\ScdFile.cs" />
+    <Compile Include="Sound\ScdHeader.cs" />
+    <Compile Include="Sound\ScdOggEntry.cs" />
+    <Compile Include="Text\DefaultEvaluationFunctionProvider.cs" />
+    <Compile Include="Text\EvaluationHelper.cs" />
+    <Compile Include="Text\Expressions\CloseTag.cs" />
+    <Compile Include="Text\Expressions\ExpressionCollection.cs" />
+    <Compile Include="Text\Expressions\GenericExpression.cs" />
+    <Compile Include="Text\Expressions\IValueExpression.cs" />
+    <Compile Include="Text\Expressions\ObjectWithDisplay.cs" />
+    <Compile Include="Text\Expressions\OpenTag.cs" />
+    <Compile Include="Text\Expressions\SurroundedExpression.cs" />
+    <Compile Include="Text\IExpression.cs" />
+    <Compile Include="Text\IEvaluationFunctionProvider.cs" />
+    <Compile Include="Text\Nodes\IExpressionNode.cs" />
+    <Compile Include="Text\Nodes\INodeVisitor.cs" />
+    <Compile Include="Text\Nodes\IStaticNode.cs" />
+    <Compile Include="Text\Nodes\IConditionalNode.cs" />
+    <Compile Include="Text\Nodes\INodeWithArguments.cs" />
+    <Compile Include="Text\Nodes\INodeWithChildren.cs" />
+    <Compile Include="Text\IntegerType.cs" />
+    <Compile Include="Text\Nodes\ArgumentCollection.cs" />
+    <Compile Include="Text\Nodes\CloseTag.cs" />
+    <Compile Include="Text\Nodes\Comparison.cs" />
+    <Compile Include="Text\Nodes\DefaultElement.cs" />
+    <Compile Include="Text\Nodes\EmptyElement.cs" />
+    <Compile Include="Text\Nodes\OpenTag.cs" />
+    <Compile Include="Text\Nodes\IfElement.cs" />
+    <Compile Include="Text\Nodes\IfEqualsElement.cs" />
+    <Compile Include="Text\Nodes\Parameter.cs" />
+    <Compile Include="Text\Nodes\StaticByteArray.cs" />
+    <Compile Include="Text\Nodes\StaticInteger.cs" />
+    <Compile Include="Text\Nodes\StaticString.cs" />
+    <Compile Include="Text\Nodes\GenericElement.cs" />
+    <Compile Include="Text\Nodes\SwitchElement.cs" />
+    <Compile Include="Text\Nodes\TopLevelParameter.cs" />
+    <Compile Include="Text\Parameters\ObjectParameters.cs" />
+    <Compile Include="Text\Processor\Expressions\EmptyExpression.cs" />
+    <Compile Include="Text\Processor\Expressions\ExpressionCollection.cs" />
+    <Compile Include="Text\Processor\Expressions\StaticExpression.cs" />
+    <Compile Include="Text\Processor\IExpression.cs" />
+    <Compile Include="Text\Parameters\ParameterBase.cs" />
+    <Compile Include="Text\Parameters\PlayerParameters.cs" />
+    <Compile Include="Text\EvaluationParameters.cs" />
+    <Compile Include="Text\StringTokens.cs" />
+    <Compile Include="Text\DecodeExpressionType.cs" />
+    <Compile Include="Text\INode.cs" />
+    <Compile Include="Text\NodeFlags.cs" />
+    <Compile Include="Text\XivString.cs" />
+    <Compile Include="Text\XivStringDecoder.cs" />
+    <Compile Include="Text\TagType.cs" />
+    <Compile Include="Xiv\ActionBase.cs" />
+    <Compile Include="Xiv\Adventure.cs" />
+    <Compile Include="Xiv\AetherCurrent.cs" />
+    <Compile Include="Xiv\AirshipExplorationLevel.cs" />
+    <Compile Include="Xiv\AirshipExplorationLog.cs" />
+    <Compile Include="Xiv\AirshipExplorationParamType.cs" />
+    <Compile Include="Xiv\AirshipExplorationPoint.cs" />
+    <Compile Include="Xiv\ChocoboRace.cs" />
+    <Compile Include="Xiv\ChocoboRaceAbility.cs" />
+    <Compile Include="Xiv\ChocoboRaceAbilityType.cs" />
+    <Compile Include="Xiv\ChocoboRaceRank.cs" />
+    <Compile Include="Xiv\ChocoboRaceStatus.cs" />
+    <Compile Include="Xiv\ChocoboRaceTerritory.cs" />
+    <Compile Include="Xiv\ChocoboRaceItem.cs" />
+    <Compile Include="Xiv\Collections\ClassJobActionCollection.cs" />
+    <Compile Include="Xiv\CompanyCraftDraft.cs" />
+    <Compile Include="Xiv\CompanyCraftDraftCategory.cs" />
+    <Compile Include="Xiv\CompanyCraftDraftCategoryTxt.cs" />
+    <Compile Include="Xiv\CompanyCraftManufactoryState.cs" />
+    <Compile Include="Xiv\CompanyCraftPart.cs" />
+    <Compile Include="Xiv\CompanyCraftProcess.cs" />
+    <Compile Include="Xiv\CompanyCraftProcess.Request.cs" />
+    <Compile Include="Xiv\CompanyCraftSequence.cs" />
+    <Compile Include="Xiv\CompanyCraftSupplyItem.cs" />
+    <Compile Include="Xiv\CompanyCraftType.cs" />
+    <Compile Include="Xiv\CustomTalk.cs" />
+    <Compile Include="Xiv\EObj.cs" />
+    <Compile Include="Xiv\FccShop.cs" />
+    <Compile Include="Xiv\GatheringCondition.cs" />
+    <Compile Include="Xiv\GatheringExp.cs" />
+    <Compile Include="Xiv\GatheringNotebookList.cs" />
+    <Compile Include="Xiv\GatheringNotebookRegion.cs" />
+    <Compile Include="Xiv\GatheringPoint.cs" />
+    <Compile Include="Xiv\GatheringPointBase.cs" />
+    <Compile Include="Xiv\GatheringPointBonus.cs" />
+    <Compile Include="Xiv\GatheringPointBonusType.cs" />
+    <Compile Include="Xiv\GatheringPointName.cs" />
+    <Compile Include="Xiv\GeneralAction.cs" />
+    <Compile Include="Xiv\GoldSaucerTextData.cs" />
+    <Compile Include="Xiv\HousingLayoutLimit.cs" />
+    <Compile Include="Xiv\IQuantifiable.cs" />
+    <Compile Include="Xiv\IQuantifiableXivString.cs" />
+    <Compile Include="Xiv\ItemComparer.cs" />
+    <Compile Include="Xiv\LeveVfx.cs" />
+    <Compile Include="Xiv\MasterpieceSupplyDuty.cs" />
+    <Compile Include="Xiv\ParamGrow.cs" />
+    <Compile Include="Xiv\QuestRepeatInterval.cs" />
+    <Compile Include="Range.cs" />
+    <Compile Include="ARealmReversed.cs" />
+    <Compile Include="UpdateReport.cs" />
+    <Compile Include="Xiv\Achievement.cs" />
+    <Compile Include="Xiv\AchievementCategory.cs" />
+    <Compile Include="Xiv\AchievementKind.cs" />
+    <Compile Include="Xiv\Action.cs" />
+    <Compile Include="Xiv\ClassJobActionBase.cs" />
+    <Compile Include="Xiv\ActionCategory.cs" />
+    <Compile Include="Xiv\Addon.cs" />
+    <Compile Include="Xiv\BaseParam.cs" />
+    <Compile Include="Xiv\BeastReputationRank.cs" />
+    <Compile Include="Xiv\BeastTribe.cs" />
+    <Compile Include="Xiv\BGM.cs" />
+    <Compile Include="Xiv\BNpc.cs" />
+    <Compile Include="Xiv\BNpcBase.cs" />
+    <Compile Include="Xiv\BNpcData.cs" />
+    <Compile Include="Xiv\BNpcLocation.cs" />
+    <Compile Include="Xiv\BNpcName.cs" />
+    <Compile Include="Xiv\BuddyAction.cs" />
+    <Compile Include="Xiv\BuddyEquip.cs" />
+    <Compile Include="Xiv\ClassJob.cs" />
+    <Compile Include="Xiv\ClassJobCategory.cs" />
+    <Compile Include="Xiv\Collections\BNpcCollection.cs" />
+    <Compile Include="Xiv\Collections\ENpcCollection.cs" />
+    <Compile Include="Xiv\Collections\EquipSlotCollection.cs" />
+    <Compile Include="Xiv\ContentType.cs" />
+    <Compile Include="Xiv\IContentReward.cs" />
+    <Compile Include="Xiv\Collections\ItemCollection.cs" />
+    <Compile Include="Xiv\Collections\ShopCollection.cs" />
+    <Compile Include="Xiv\Companion.cs" />
+    <Compile Include="Xiv\CompanyAction.cs" />
+    <Compile Include="Xiv\ContentBase.cs" />
+    <Compile Include="Xiv\ContentReward.cs" />
+    <Compile Include="Xiv\ContentRoulette.cs" />
+    <Compile Include="Xiv\CraftAction.cs" />
+    <Compile Include="Xiv\CraftCrystalType.cs" />
+    <Compile Include="Xiv\CraftLeve.cs" />
+    <Compile Include="Xiv\CraftLeveItem.cs" />
+    <Compile Include="Xiv\CraftType.cs" />
+    <Compile Include="Xiv\Emote.cs" />
+    <Compile Include="Xiv\EmoteCategory.cs" />
+    <Compile Include="Xiv\ENpc.cs" />
+    <Compile Include="Xiv\ENpcBase.cs" />
+    <Compile Include="Xiv\ENpcResident.cs" />
+    <Compile Include="Xiv\EquipSlot.cs" />
+    <Compile Include="Xiv\EquipSlotCategory.cs" />
+    <Compile Include="Xiv\EventAction.cs" />
+    <Compile Include="Xiv\EventItem.cs" />
+    <Compile Include="Xiv\Fate.cs" />
+    <Compile Include="Xiv\FCRank.cs" />
+    <Compile Include="Xiv\FishingSpot.cs" />
+    <Compile Include="Xiv\FishingSpotCategory.cs" />
+    <Compile Include="Xiv\FishParameter.cs" />
+    <Compile Include="Xiv\GatheringItem.cs" />
+    <Compile Include="Xiv\GatheringType.cs" />
+    <Compile Include="Xiv\GCShop.cs" />
+    <Compile Include="Xiv\GCShopItemCategory.cs" />
+    <Compile Include="Xiv\GenericLocation.cs" />
+    <Compile Include="Xiv\GrandCompany.cs" />
+    <Compile Include="Xiv\GrandCompanyRank.cs" />
+    <Compile Include="Xiv\GrandCompanySealShopItem.cs" />
+    <Compile Include="Xiv\GuardianDeity.cs" />
+    <Compile Include="Xiv\HousingFurniture.cs" />
+    <Compile Include="Xiv\HousingItem.cs" />
+    <Compile Include="Xiv\HousingItemCategory.cs" />
+    <Compile Include="Xiv\HousingYardObject.cs" />
+    <Compile Include="Xiv\IItemSource.cs" />
+    <Compile Include="Xiv\ILocatable.cs" />
+    <Compile Include="Xiv\ILocation.cs" />
+    <Compile Include="Xiv\InstanceContent.cs" />
+    <Compile Include="Xiv\InstanceContentData.cs" />
+    <Compile Include="Xiv\InstanceContentData.Fight.cs" />
+    <Compile Include="Xiv\InstanceContentData.RewardItem.cs" />
+    <Compile Include="Xiv\InstanceContentType.cs" />
+    <Compile Include="Xiv\Item.cs" />
+    <Compile Include="Xiv\IParameterObject.cs" />
+    <Compile Include="Xiv\IShop.cs" />
+    <Compile Include="Xiv\IShopListing.cs" />
+    <Compile Include="Xiv\ItemAction.cs" />
+    <Compile Include="Xiv\ItemActions\AetherytePendulum.cs" />
+    <Compile Include="Xiv\ItemActions\ChocoboActionReset.cs" />
+    <Compile Include="Xiv\ItemActions\ChocoboLevelCapIncrease.cs" />
+    <Compile Include="Xiv\ItemActions\DesynthSkillReset.cs" />
+    <Compile Include="Xiv\ItemActions\EternalBondInvitation.cs" />
+    <Compile Include="Xiv\ItemActions\EternityRing.cs" />
+    <Compile Include="Xiv\ItemActions\RealmRebornRed.cs" />
+    <Compile Include="Xiv\ItemBase.cs" />
+    <Compile Include="Xiv\ItemActions\AttributeReset.cs" />
+    <Compile Include="Xiv\ItemActions\BuddyEquipUnlock.cs" />
+    <Compile Include="Xiv\ItemActions\BuddySummon.cs" />
+    <Compile Include="Xiv\ItemActions\ChocoboFeed.cs" />
+    <Compile Include="Xiv\ItemActions\CompanionUnlock.cs" />
+    <Compile Include="Xiv\ItemActions\Enhancement.cs" />
+    <Compile Include="Xiv\ItemActions\Fantasia.cs" />
+    <Compile Include="Xiv\ItemActions\Fireworks.cs" />
+    <Compile Include="Xiv\ItemActions\Food.cs" />
+    <Compile Include="Xiv\ItemActions\GpRecovery.cs" />
+    <Compile Include="Xiv\ItemActions\HostileEffect.cs" />
+    <Compile Include="Xiv\ItemActions\HpMpRecovery.cs" />
+    <Compile Include="Xiv\ItemActions\HpRecovery.cs" />
+    <Compile Include="Xiv\ItemActions\ItemRoulette.cs" />
+    <Compile Include="Xiv\ItemActions\MountUnlock.cs" />
+    <Compile Include="Xiv\ItemActions\MpRecovery.cs" />
+    <Compile Include="Xiv\ItemActions\PointRecovery.cs" />
+    <Compile Include="Xiv\ItemActions\Raise.cs" />
+    <Compile Include="Xiv\ItemActions\RecipeBookUnlock.cs" />
+    <Compile Include="Xiv\ItemActions\Sanction.cs" />
+    <Compile Include="Xiv\ItemActions\SphereScroll.cs" />
+    <Compile Include="Xiv\ItemActions\FriendlyEffect.cs" />
+    <Compile Include="Xiv\ItemActions\StatusRemoval.cs" />
+    <Compile Include="Xiv\ItemActions\TpRecovery.cs" />
+    <Compile Include="Xiv\ItemFood.cs" />
+    <Compile Include="Xiv\ItemLevel.cs" />
+    <Compile Include="Xiv\ItemSearchCategory.cs" />
+    <Compile Include="Xiv\ItemSeries.cs" />
+    <Compile Include="Xiv\ItemSpecialBonus.cs" />
+    <Compile Include="Xiv\Items\Accessory.cs" />
+    <Compile Include="Xiv\Items\Armour.cs" />
+    <Compile Include="Xiv\Items\CraftingTool.cs" />
+    <Compile Include="Xiv\Items\Equipment.cs" />
+    <Compile Include="Xiv\Items\GatheringTool.cs" />
+    <Compile Include="Xiv\Items\Housing.cs" />
+    <Compile Include="Xiv\Items\MagicWeapon.cs" />
+    <Compile Include="Xiv\Items\MateriaItem.cs" />
+    <Compile Include="Xiv\Items\PhysicalWeapon.cs" />
+    <Compile Include="Xiv\Items\Shield.cs" />
+    <Compile Include="Xiv\Items\SoulCrystal.cs" />
+    <Compile Include="Xiv\Items\Usable.cs" />
+    <Compile Include="Xiv\Items\Weapon.cs" />
+    <Compile Include="Xiv\ItemUICategory.cs" />
+    <Compile Include="Xiv\JournalCategory.cs" />
+    <Compile Include="Xiv\JournalGenre.cs" />
+    <Compile Include="Xiv\Leve.cs" />
+    <Compile Include="Xiv\LeveAssignmentType.cs" />
+    <Compile Include="Xiv\LeveClient.cs" />
+    <Compile Include="Xiv\Level.cs" />
+    <Compile Include="Xiv\LeveRewardItem.cs" />
+    <Compile Include="Xiv\LeveRewardItemGroup.cs" />
+    <Compile Include="Xiv\LogFilter.cs" />
+    <Compile Include="Xiv\LogKind.cs" />
+    <Compile Include="Xiv\LogKindCategoryText.cs" />
+    <Compile Include="Xiv\LogMessage.cs" />
+    <Compile Include="Xiv\MainCommand.cs" />
+    <Compile Include="Xiv\MainCommandCategory.cs" />
+    <Compile Include="Xiv\Map.cs" />
+    <Compile Include="Xiv\Materia.cs" />
+    <Compile Include="Xiv\ModelChara.cs" />
+    <Compile Include="Xiv\MonsterNote.cs" />
+    <Compile Include="Xiv\MonsterNoteTarget.cs" />
+    <Compile Include="Xiv\Mount.cs" />
+    <Compile Include="Xiv\OnlineStatus.cs" />
+    <Compile Include="Xiv\Parameter.cs" />
+    <Compile Include="Xiv\ParameterCollection.cs" />
+    <Compile Include="Xiv\ParameterType.cs" />
+    <Compile Include="Xiv\ParameterValue.cs" />
+    <Compile Include="Xiv\ParameterValueFixed.cs" />
+    <Compile Include="Xiv\ParameterValueRelative.cs" />
+    <Compile Include="Xiv\ParameterValueRelativeLimited.cs" />
+    <Compile Include="Xiv\PlaceName.cs" />
+    <Compile Include="Xiv\ProbabilityPair.cs" />
+    <Compile Include="Xiv\Quest.cs" />
+    <Compile Include="Xiv\IShopListingItem.cs" />
+    <Compile Include="Xiv\QuestRequirements.cs" />
+    <Compile Include="Xiv\QuestRequirements.InstanceContentRequirement.cs" />
+    <Compile Include="Xiv\PrerequisiteQuestsRequirement.cs" />
+    <Compile Include="Xiv\QuestRewardGroupType.cs" />
+    <Compile Include="Xiv\QuestRewardItem.cs" />
+    <Compile Include="Xiv\QuestRewardItemGroup.cs" />
+    <Compile Include="Xiv\QuestRewardOther.cs" />
+    <Compile Include="Xiv\QuestRewards.cs" />
+    <Compile Include="Xiv\Race.cs" />
+    <Compile Include="Xiv\RacingChocoboItem.cs" />
+    <Compile Include="Xiv\RacingChocoboName.cs" />
+    <Compile Include="Xiv\RacingChocoboNameCategory.cs" />
+    <Compile Include="Xiv\RacingChocoboNameInfo.cs" />
+    <Compile Include="Xiv\RacingChocoboParam.cs" />
+    <Compile Include="Xiv\Recipe.cs" />
+    <Compile Include="Xiv\RecipeElement.cs" />
+    <Compile Include="Xiv\RecipeIngredient.cs" />
+    <Compile Include="Xiv\RecipeIngredientType.cs" />
+    <Compile Include="Xiv\RecipeLevel.cs" />
+    <Compile Include="Xiv\RecipeLevelTable.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Xiv\RelicNote.cs" />
+    <Compile Include="Xiv\RelicNoteCategory.cs" />
+    <Compile Include="Xiv\RelicNoteCategoryText.cs" />
+    <Compile Include="Xiv\RetainerTask.cs" />
+    <Compile Include="Xiv\RetainerTaskBase.cs" />
+    <Compile Include="Xiv\RetainerTaskNormal.cs" />
+    <Compile Include="Xiv\RetainerTaskRandom.cs" />
+    <Compile Include="Xiv\Sheets\InventoryItemSheet.cs" />
+    <Compile Include="Xiv\Sheets\ItemActionSheet.cs" />
+    <Compile Include="Xiv\Shop.cs" />
+    <Compile Include="Xiv\ShopItem.cs" />
+    <Compile Include="Xiv\ShopListingItem.cs" />
+    <Compile Include="Xiv\SpecialShop.cs" />
+    <Compile Include="Xiv\SpecialShopListing.cs" />
+    <Compile Include="Xiv\Stain.cs" />
+    <Compile Include="Xiv\Status.cs" />
+    <Compile Include="Xiv\TerritoryType.cs" />
+    <Compile Include="Xiv\Title.cs" />
+    <Compile Include="Xiv\Tomestone.cs" />
+    <Compile Include="Xiv\Trait.cs" />
+    <Compile Include="Xiv\Tribe.cs" />
+    <Compile Include="Xiv\TripleTriad.cs" />
+    <Compile Include="Xiv\TripleTriadCard.cs" />
+    <Compile Include="Xiv\TripleTriadCardRarity.cs" />
+    <Compile Include="Xiv\TripleTriadCardResident.cs" />
+    <Compile Include="Xiv\TripleTriadCardType.cs" />
+    <Compile Include="Xiv\TripleTriadCompetition.cs" />
+    <Compile Include="Xiv\TripleTriadRule.cs" />
+    <Compile Include="Xiv\Weather.cs" />
+    <Compile Include="Xiv\WeatherRate.cs" />
+    <Compile Include="Xiv\XivSheet.cs" />
+    <Compile Include="Xiv\IXivRow.cs" />
+    <Compile Include="Xiv\IXivSheet.cs" />
+    <Compile Include="Xiv\IXivSheet.Generic.cs" />
+    <Compile Include="Xiv\XivCollection.cs" />
+    <Compile Include="Xiv\XivRow.cs" />
+    <Compile Include="Xiv\XivSheet.Enumerator.cs" />
+    <Compile Include="Xiv\XivSheetAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotSquish\DotSquish.csproj">
+      <Project>{f9681545-4bea-4fd3-9ab9-a67bd37ab36d}</Project>
+      <Name>DotSquish</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YamlDotNet\YamlDotNet.csproj">
+      <Project>{bf32de1b-6276-4341-b212-f8862adbba7a}</Project>
+      <Name>YamlDotNet</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ex.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <Compile Include="Xiv\InstanceContentData.Treasure.cs" />
+    <Compile Include="Xiv\QuestRequirements.ClassJobRequirement.cs" />
+    <Compile Include="Xiv\PrerequisiteQuestsRequirementType.cs" />
+    <Compile Include="Xiv\QuestRequirements.PreviousQuestRequirement.cs" />
+    <Compile Include="Xiv\MasterpieceSupplyDuty.CollectableItem.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.101.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.101.0\build\net451\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.101.0\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.101.0\build\net451\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

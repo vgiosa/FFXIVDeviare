@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e8c9d03261644a18d1a37d10e388438" Name="Diagram1">
+        <EntityTypeShape EntityType="ffxiv_dbModel.CategoryGroup" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.HistoryListing" Width="1.5" PointX="12.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.ItemByServer" Width="1.5" PointX="7.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.ItemCategory" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.Item" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.MarketListing" Width="1.5" PointX="12.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.Player" Width="1.5" PointX="10.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.RecipeElement" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.RecipeLevel" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.Recipe" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.RetainerLog" Width="1.5" PointX="12.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.Retainer" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.Server" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.Shop" Width="1.5" PointX="7.5" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.ShopItem" Width="1.5" PointX="7.5" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffxiv_dbModel.ShopItemMap" Width="1.5" PointX="9.75" PointY="27.875" IsExpanded="true" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_ItemCategory_CategoryGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_HistoryListing_ItemsByServer" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_HistoryListing_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_ItemsByServer_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_ItemsByServer_Servers" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_MarketListing_ItemsByServer" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Items_ItemCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items1" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items10" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items2" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items3" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items4" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items5" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items6" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items7" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items8" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_Items9" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_ShopItem_Items1" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_MarketListing_Retainer" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Player_Servers" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Recipes_RecipeLevels" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_RetainerRetainerLog" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_Retainer_Servers" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_ShopItemMap_Shop" ManuallyRouted="false" />
+        <AssociationConnector Association="ffxiv_dbModel.FK_ShopItemMap_ShopItem" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
